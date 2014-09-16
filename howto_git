@@ -1,0 +1,57 @@
+This is the document explaining how to use git
+Feel free to update this document.
+
+Clone repository to locol computer
+git clone https://github.com/Unicorn-Projects/unicorn-menu-server
+
+Go to unicorn-menu-server and check status
+cd unicorn-menu-server
+
+Create your local development branch from remote branch and make
+git checkout -b yinz-dev origin/master
+
+Make code changes in your local branch and have FUN!
+
+Commit your code changes:
+git commit -m "message explains what the commit change does" 
+
+If you have more than one changes, please squash:
+git log (Check how many changes you want to squash)
+git rebase --interactive <CommitIdToStartWith or HEAD~BackCount> 
+ex: 'git rebase -i HEAD~3' (previous 3 changes) 
+
+Sync up with remote repository before check in your code changes
+git pull --rebase origin master (please use REBASE)
+
+Resolve the conflict changes on files and add files back 
+git add <conflict files>
+
+Continue rebase until there is no conflict changes
+git rebase --continue
+
+Check in your changes to remote branch
+git push origin yinz-dev:master
+
+Congratulations!
+
+Recommendations:
+More Git: 
+http://git-scm.com/
+https://www.atlassian.com/git/tutorials/
+
+Create .gitconfig file under home directory: vim ~/.gitconfig 
+Setup commit user and email
+[user]
+        name = ZihangYin
+        email = yinzh009100@amazon.com
+Add alias: following are some suggested alias
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit --
+
+
+
