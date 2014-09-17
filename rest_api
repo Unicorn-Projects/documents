@@ -1,0 +1,16 @@
+Restaurant:
+Uri_Prefix: https://www.unicorn-menu.com/restaurant?
+
+Cuisine:
+Uri_Prefix: https://www.unicorn-menu.com/cuisine?
+
+Customer:
+Uri_Prefix: https://www.unicorn-menu.com/cusomter?
+
+User:
+Uri_Prefix: https://www.unicorn-menu.com/user?
+
+Token:
+Uri_Prefix: https://www.unicorn-menu.com/token?
+
+
