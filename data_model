@@ -1,0 +1,17 @@
+<Cuisines_Category>
+Chinese, FastFood, French, Italian, Japaness, Korean, Mexican, Sandwich, Thai
+
+<Cuisine_Type>
+Appetizer, Beer, Beverage, Dessert, Entree, Snacks, Wine
+
+<Restaurant>
+Name, Alias, Branch_Name, Cuisines_Category, Address, Coordinate, Contact, Website, Open_Hour, Images
+
+<Cuisine>
+Name, Alias, Cuisine_Type, Descriptions, Ingredients, Price, Images
+
+<Restaurant_Counters>
+LIKE <Total LIKE OF ALL CUISINEs>
+
+<Cuisine_Counters>
+LIKE, ORDER 
