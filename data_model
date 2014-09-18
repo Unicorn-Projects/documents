@@ -4,28 +4,23 @@ Chinese, FastFood, French, Italian, Japaness, Korean, Mexican, Sandwich, Thai
 <Cuisine_Type>
 Appetizer, Beer, Beverage, Dessert, Entree, Snacks, Wine
 
-<MEAL_TYPE>
+<Meal_Type>
 Breakfast, Brunch, Lunch, HappyHour, Dinner
 
-<Restaurant_Region>
+<Restaurant>
 HASH_KEY: GeoHashPrefix
-RANGE_KEY: Region-RestaurantID
-ATTRIBUTES: Name, Alias, BranchName, Cuisines_Category, LocalAddress, City, ZipCode, Country, Coordinate, Contact, Open_Hour, Images, FavoriteCounter 
-LSI: FavoriteCounter, Cuisines_category, Open_Hour
-GSI: City-FavoriteCounter, ZipCode-FavoriteCounter, Name, Alias
+RANGE_KEY: RestaurantID
+ATTRIBUTES: Name, BranchName, CustomerPrincipal(Owner), Cuisines_Category, LocalAddress, City, ZipCode, Country,
+Coordinate, GeoHash, Contact, Open_Hour, Close_Hour, Images, FavoriteCounter, FollowerCounter
+GSI: FavoriteCounter, FollwerCounter
+GSI: City-FavoriteCounter, RestaurantID 
 
-<Cuisine_Region>
-HASH_KEY: Region=RestaurantID
-RANGE_KEY: CuisineID
-ATTRIBUTES: Cuisine_Type, Meal_Type, Descriptions, Ingredients
-LSI: Cuisine_Type, Meal_Type
-
-<Cuisine_Counters_Region>
-HASH_KEY: Region-RestaurantID
-RANGE_KEY: CuisineID
-ATTRIBUTES: GeoHashPrefix, Name, Alias, FavoriteCounter, Price, Images
-LSI: FavoriteCounter
-GSI: GeoHashPrefix-FavoriteCounter, GeoHashPrefix-Name, GeoHashPrefix-Alias
+<Cuisine>
+HASH_KEY: GeoHashPrefix 
+RANGE: RestaurantID-CuisineID
+ATTRIBUTES: RestaurantID, CuisineName, Cuisine_Type, Meal_Type, Price, Images, FavoriteCounter, OrderedCounter 
+LSI: FavoriteCounter, OrderedCounter
+GSI: Restaurant_ID
 
 <User_Favorite_Cuisine>
 HASH_KEY: UserPrincipal
