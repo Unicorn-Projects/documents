@@ -1,16 +1,31 @@
-Restaurant:
-Uri_Prefix: https://www.unicorn-menu.com/restaurant?
+Search for nearby popular restaurant:
+GET  v2/restaurant?
+REQUIRED PARAMETERS:
+location(coordinate): geographic coordinate
+OPTIONAL PARAMETERS:
+name/alias(string): Restaurant name or alias (substring match), if not included, 
+limit(number): Number of business results to return     (default 10).
+offset_restaurant_id(string): Offset the list of returned business results by this amount.
+cuisines_category_filter(string): Cuisine category to filter search results with.
+radius_filter(number): Search radius in meters.
+open_flag(string): If set true, only search for opened restaurant.
 
-Cuisine:
-Uri_Prefix: https://www.unicorn-menu.com/cuisine?
+Search for nearby popular cuisine:
+GET  v2/cuisine?
+REQUIRED PARAMETERS:
+location(coordinate): geographic coordinate
+OPTIONAL PARAMETERS:
+name/alias(string): Cuisine name or alias (substring match), if not included, 
+limit(number): Number of business results to return     (default 10).
+offset_restaurant_id(string): Offset the list of returned business results by this amount.
+radius_filter(number): Search radius in meters.
+open_flag(string): If set true, only search for opened restaurant.
 
-Customer:
-Uri_Prefix: https://www.unicorn-menu.com/cusomter?
-
-User:
-Uri_Prefix: https://www.unicorn-menu.com/user?
-
-Token:
-Uri_Prefix: https://www.unicorn-menu.com/token?
-
+Get menu for restaurant
+Get v2/menu?
+REQUIRED PARAMETERS:
+restaurant_id(string): restaurant unique identifier
+OPTIONAL PARAMETERS:
+cuisines_type_filter(string):  Cuisine type to filter search results with.
+meal_type_filter(string):  meal type to filter search results with.
 
