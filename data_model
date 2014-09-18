@@ -22,6 +22,11 @@ ATTRIBUTES: RestaurantID, CuisineName, Cuisine_Type, Meal_Type, Price, Images, F
 LSI: FavoriteCounter, OrderedCounter
 GSI: Restaurant_ID
 
+<Cuisinei_Detail>
+HASH_KEY: RestaurantID
+RANGE_KEY: CuisineID
+ATTRIBUTES: Description, Ingredients, PriceDetail, OverallFavoriteCounter
+
 <User_Favorite_Cuisine>
 HASH_KEY: UserPrincipal
 RANGE_KEY: Region_RestaurantID-CuisineID
