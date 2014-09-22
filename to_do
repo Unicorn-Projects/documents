@@ -1,0 +1,11 @@
+Feature:
+1. User/Customer Login (related access control policy)
+2. Building Caching Layer (Server/Client)
+
+Imporvements:
+1. DynamoDB result pagination
+2. HTTP URL ENCODING
+3. Service Logging and Monitoring
+
+Minor:
+1. Handle OpenHours in a better way.
