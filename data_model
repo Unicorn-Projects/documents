@@ -7,33 +7,57 @@ Appetizer, Beer, Beverage, Dessert, Entree, Snacks, Wine
 <Meal_Type>
 Breakfast, Brunch, Lunch, HappyHour, Dinner
 
-<Restaurant>
-HASH_KEY: GeoHashPrefix
-RANGE_KEY: RestaurantID
-ATTRIBUTES: Name, BranchName, CustomerPrincipal(Owner), Cuisines_Category, LocalAddress, City, ZipCode, Country,
-Coordinate, GeoHash, Contact, Open_Hour, Close_Hour, Images, FavoriteCounter, FollowerCounter
-GSI: FavoriteCounter, FollwerCounter
-GSI: City-FavoriteCounter, RestaurantID 
+<Restaurant_Info>
+HASH_KEY: GeoHashBinaryPrefix (20 bits, gives us 5 miles range)
+RANGE_KEY: RestaurantID 
+ATTRIBUTES: RestaurantName, BranchName(Optional), OwnerCustomerPrincipal, Cuisines_Category, ImagesUrls, LocalAddress, City, ZipCode, Country, GeoHashBinaryString, Contact, OpenHours, CreationTime, FavoriteCounter
+LSI: FavoriteCounter
+GSI: City-FavoriteCounter, OwnerCustomerPrincipal, RestaurantId  
 
-<Cuisine>
-HASH_KEY: GeoHashPrefix 
+Advantages:
+This allows us to do search mostly favorited nearby restaurants in one read operation.
+This allows us to filter search results based on RestaurantName, Cuisines_Category, City, ZipCode and OpenHours. 
+No cross table consistency problem.
+
+Disadvantages and potential solutions:
+Since each restaurant is uniquely defined by GeoHashBinaryPrefix and RestaurantId, we do support same restaurant having different branches within 5 miles. The workaround for this is that the customers can generate separate RestaurantID.
+Most of the fields in this table is very unlikely to be updated, except FavoriteCounter. We might consider having FavoriteCounter in a separte table like the following one. The bad thing about that is that we would have to do more read operations. 
+
+<Restaurant_Info>
+HASH_KEY: GeoHashBinaryPrefix
+RANGE_KEY: RestaurantID 
+ATTRIBUTES: RestaurantName, BranchName(Optional), OwnerCustomerPrincipal, Cuisines_Category, ImagesUrls, LocalAddress, City, ZipCode, Country, GeoHashBinaryString, Contact, OpenHours, CreationTime
+GSI: OwnerCustomerPrincipal, RestaurantId  
+<Restaurant_Counters>
+HASH_KEY: GeoHashBinaryPrefix
+RANGE_KEY: RestaurantID 
+ATTRIBUTES: GeoHashBinaryString, FavoriteCounter
+
+<Cuisine_Info>
+HASH_KEY: GeoHashiBinaryPrefix (Same as one in Restaurant table)
+RANGE: RestaurantID-CuisineID (CuisineID is auto-increment value)
+ATTRIBUTES: RestaurantID, RestaurantName, CuisineName, Cuisine_Type, Meal_Type, ImagesUrls, Price, GeoHashBinaryString, CreationTime, FavoriteCounter 
+LSI: FavoriteCounter, Restaurant_ID
+
+Same advantages and disadvantages as Restaurant_Info table, following are the alternative table designs.
+
+<Cuisine_Info>
+HASH_KEY: GeoHashiBinaryPrefix
 RANGE: RestaurantID-CuisineID
-ATTRIBUTES: RestaurantID, CuisineName, Cuisine_Type, Meal_Type, Price, Images, FavoriteCounter, OrderedCounter 
-LSI: FavoriteCounter, OrderedCounter
-GSI: Restaurant_ID
+ATTRIBUTES: RestaurantID, RestaurantName, CuisineName, Cuisine_Type, Meal_Type, ImagesUrls, Price, GeoHashBinaryString, CreationTime
+LSI: Restaurant_ID
 
-<Cuisinei_Detail>
+<Cuisine_Counters>
+HASH_KEY: GeoHashiBinaryPrefix
+RANGE: RestaurantID-CuisineID
+ATTRIBUTES: GeoHashBinaryString, FavoriteCounter
+
+<Cuisine_Detail_Info>
 HASH_KEY: RestaurantID
 RANGE_KEY: CuisineID
-ATTRIBUTES: Description, Ingredients, PriceDetail, OverallFavoriteCounter
+ATTRIBUTES: Description, Ingredients, PriceDetail
 
 <User_Favorite_Cuisine>
 HASH_KEY: UserPrincipal
-RANGE_KEY: Region_RestaurantID-CuisineID
-GSI: Region-RestaurantID-CuisineID
-
-<User_Following_Restaurant>
-HASH_KEY: UserPrincipal
-RANGE_KEY: Region_RestaurantID
-GSI: Region_RestaurantID
-
+RANGE_KEY: RestaurantID-CuisineID
+GSI: RestaurantID-CuisineID
