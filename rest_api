@@ -10,6 +10,16 @@ cuisines_category_filter(string): Cuisine category to filter search results with
 radius_filter(number): Search radius in meters.
 open_flag(string): If set true, only search for opened restaurant.
 
+e.g.
+curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645&radius=5000" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645&radius=5000&name=China" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645&radius=5000&category=Vietnamese" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645&radius=5000&open_at_local_hour=11" -X GET
+
+curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472/favorite" -X POST
+
 Search for nearby popular cuisine:
 GET  v2/cuisine?
 REQUIRED PARAMETERS:
@@ -20,6 +30,19 @@ limit(number): Number of business results to return     (default 10).
 offset_restaurant_id(string): Offset the list of returned business results by this amount.
 radius_filter(number): Search radius in meters.
 open_flag(string): If set true, only search for opened restaurant.
+
+e.g.
+curl "http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitude=-122.333645" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitude=-122.333645&radius=5000" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitude=-122.333645&radius=5000&name=Beef" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitude=-122.333645&radius=5000&cuisine_type=Appetizer" -X GET
+curl http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitudae=-122.333645&radius=5000&cuisine_type=Appetizer&meal_type=Lunch" -X GET
+
+curl "http://54.68.133.142:8080/v1/cuisines/c23n%2328625618269781472" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/c23n%2328625618269781472?cuisine_type=Dessert" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/c23n%2328625618269781472?cuisine_type=Appetizer&meal_type=Lunch" -X GET
+
+curl "http://54.68.133.142:8080/v1/cuisines/c23n%2328625618269781472%231/favorite" -X POST
 
 Get menu for restaurant
 Get v2/menu?
