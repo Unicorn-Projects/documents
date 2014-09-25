@@ -1,13 +1,11 @@
 V.1.0.0 Feature List:
 Homepage
 - Browse dishes nearby (tile/list/map)
+- Breakfast/Lunch/Dinner listing based on time
 - Scan QR to view restaurant menu
 
 Search
-- Search dishes by: 
-      - Breakfast/Brunch/Lunch/Dinner
-      - Food categories (Region)
-      - Restaurant names
+- Input search
 - Browse popular tags: 
       - Vegetarian
       - Breakfast&Brunch
