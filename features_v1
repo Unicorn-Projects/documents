@@ -24,3 +24,12 @@ Restaurant
       - Tile/List view
       - View by category (Breakfast/Brunch/Lunch/Dinner/Drinks/etc)
       - Like
+      
+User:
+- Logged in
+      - Avatar
+      - Username
+      - Likes
+- Logged out
+      - Login/Register
+      - Tell user what they can get if they register (e.g. "Be a menuer, collect your favorite dishes!" )
