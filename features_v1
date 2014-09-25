@@ -1,0 +1,26 @@
+V.1.0.0 Feature List:
+Homepage
+- Scan QR
+- Dishes nearby (Breakfast/Lunch/Dinner listing based on time)
+
+Browse 
+- Vegetarian
+- Breakfast&Brunch
+- Seafood
+- Italian
+- French
+- Asian Fusion
+
+Restaurant
+- Restaurant brief info: 
+      - Name
+      - Restaurant category
+      - Open hours
+      - Yelp stars (v.2: total dishes likes)
+      - Map
+      - Address
+      - Phone Number (Tab to call)
+- Restaurant Menu:
+      - Tile/List view
+      - View by category (Breakfast/Brunch/Lunch/Dinner/Drinks/etc)
+      - Like
