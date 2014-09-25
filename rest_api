@@ -1,35 +1,31 @@
 Search for nearby popular restaurant:
-GET  v2/restaurant?
+GET  v1/restaurants
 REQUIRED PARAMETERS:
-location(coordinate): geographic coordinate
+latitude: geographic coordinate latitude
+longitude: geographic coordinate longitude
 OPTIONAL PARAMETERS:
-name/alias(string): Restaurant name or alias (substring match), if not included, 
-limit(number): Number of business results to return     (default 10).
-offset_restaurant_id(string): Offset the list of returned business results by this amount.
-cuisines_category_filter(string): Cuisine category to filter search results with.
-radius_filter(number): Search radius in meters.
-open_flag(string): If set true, only search for opened restaurant.
+name(string): Restaurant name or alias (exact substring match)
+category(string): Cuisine category to filter search results with.
+radius(number): Search radius in meters. (should be less than 8000)
+open_at_local_hour(string): If set true, only search for opened restaurant.
 
-e.g.
 curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645" -X GET
 curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645&radius=5000" -X GET
 curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645&radius=5000&name=China" -X GET
 curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645&radius=5000&category=Vietnamese" -X GET
 curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645&radius=5000&open_at_local_hour=11" -X GET
 
-curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472/favorite" -X POST
 
 Search for nearby popular cuisine:
-GET  v2/cuisine?
+GET  v1/cuisines
 REQUIRED PARAMETERS:
-location(coordinate): geographic coordinate
+latitude: geographic coordinate latitude
+longitude: geographic coordinate longitude
 OPTIONAL PARAMETERS:
-name/alias(string): Cuisine name or alias (substring match), if not included, 
-limit(number): Number of business results to return     (default 10).
-offset_restaurant_id(string): Offset the list of returned business results by this amount.
-radius_filter(number): Search radius in meters.
-open_flag(string): If set true, only search for opened restaurant.
+name(string): Cuisine name or alias (exact substring match), if not included, 
+radius(number): Search radius in meters. (should be less than 8000)
+cuisine_type(string): meal_type category to filter search results with 
+meal_type(string): meal_type to filter search results with
 
 e.g.
 curl "http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitude=-122.333645" -X GET
@@ -38,17 +34,37 @@ curl "http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitude=-122.33
 curl "http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitude=-122.333645&radius=5000&cuisine_type=Appetizer" -X GET
 curl http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitudae=-122.333645&radius=5000&cuisine_type=Appetizer&meal_type=Lunch" -X GET
 
-curl "http://54.68.133.142:8080/v1/cuisines/c23n%2328625618269781472" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/c23n%2328625618269781472?cuisine_type=Dessert" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/c23n%2328625618269781472?cuisine_type=Appetizer&meal_type=Lunch" -X GET
+Get restaurant information
+Get v1/restaurants/{rid}
+REQUIRED PARAMETERS:
+restaurant_id(string): restaurant unique identifier
 
-curl "http://54.68.133.142:8080/v1/cuisines/c23n%2328625618269781472%231/favorite" -X POST
+curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472" -X GET
 
-Get menu for restaurant
-Get v2/menu?
+Get cuisines for restaurant
+Get v1/restaurants/{rid}/cuisines
 REQUIRED PARAMETERS:
 restaurant_id(string): restaurant unique identifier
 OPTIONAL PARAMETERS:
 cuisines_type_filter(string):  Cuisine type to filter search results with.
 meal_type_filter(string):  meal type to filter search results with.
+
+curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472/cuisines" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472/cuisines?cuisine_type=Dessert" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472/cuisines?cuisine_type=Appetizer&meal_type=Lunch" -X GET
+
+Favorite restaurant
+Post v1/restaurants/{rid}/favorite
+REQUIRED PARAMETERS:
+restaurant_id(string): restaurant unique identifier
+
+curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472/favorite" -X POST
+
+Favorite cuisine
+Post v1/restaurants/{cid}/favorite
+REQUIRED PARAMETERS:
+cuisine_id(string): restaurant unique identifier
+
+curl "http://54.68.133.142:8080/v1/cuisines/c23n%2328625618269781472%231/favorite" -X POST
+
 
