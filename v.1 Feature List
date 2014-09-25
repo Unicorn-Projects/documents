@@ -19,7 +19,7 @@ Search
 Restaurant
 - Restaurant brief info: 
       - Name
-      - Categories (Breakfast/Brunch/Lunch/Dinner/Drinks/etc)
+      - Restaurant category
       - Open hours
       - Yelp stars (v.2: total dishes likes)
       - Map
@@ -27,7 +27,7 @@ Restaurant
       - Phone Number (Tab to call)
 - Restaurant Menu:
       - Tile/List view
-      - View by category
+      - View by category (Breakfast/Brunch/Lunch/Dinner/Drinks/etc)
       - Like
       - Add to order note (v.2?)
       
