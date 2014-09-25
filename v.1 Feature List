@@ -37,3 +37,15 @@ User:
 - Logged out
       - Login/Register
       - Tell user what they can get if they register (e.g. "Be a menuer, collect your favorite dishes!" )
+
+Main Features
+
+F1: Find the best food that I can get right now, right here.
+    1. Search mostly favorited cuisines nearby and filter results based on meal_type (breakfast, lunch, dinner, etc.) and/or cuisine_type (Appetizer, Beer, Entree, Dessert, etc.) and/or cuisines_category (Chiness, Korean, Japaneses, etc) and/or serving_at_local_time. (Note: Given geographic coordinate, nearby is within 5 miles)
+    2. Favorite a cuisine. 
+
+F2: Show me the menu 
+    1. Get restaurant inforamtion (including name, address, cuisines_category, contact, open_hours)
+    2. Get cuisines for restaurant and filter results based on meal_type and/or cuisine_type.
+
+
