@@ -31,8 +31,11 @@ Restaurant
       - Like
       - Add to order note (v.2?)
       
-Me:
-- Profile
+User:
+- Logged in
       - Avatar
       - Username
       - Likes
+- Logged out
+      - Login/Register
+      - Tell user what they can get if they register (e.g. "Be a menuer, collect your favorite dishes!" )
