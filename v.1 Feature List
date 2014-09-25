@@ -1,0 +1,33 @@
+V.1.0.0 Feature List:
+Homepage
+- Browse dishes nearby (tile/list/map)
+- Scan QR to view restaurant menu
+
+Search
+- Search dishes by: 
+      - Breakfast/Brunch/Lunch/Dinner
+      - Food categories (Region)
+      - Restaurant names
+- Browse popular tags: 
+      - Vegetarian
+      - Breakfast&Brunch
+      - Seafood
+      - Italian
+      - French
+      - Asian Fusion
+
+Restaurant
+- Restaurant brief info: 
+      - Name
+      - Categories (Breakfast/Brunch/Lunch/Dinner/Drinks/etc)
+      - Open hours
+      - Yelp stars (v.2: total dishes likes)
+      - Map
+      - Address (v.2: in-app navigation)
+      - Phone Number (Tab to call)
+- Restaurant Menu:
+      - Tile/List view
+      - View by category
+      - Like
+      - Add to order note (v.2?)
+      
