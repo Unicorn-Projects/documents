@@ -1,70 +1,85 @@
-Search for nearby popular restaurant:
-GET  v1/restaurants
-REQUIRED PARAMETERS:
-latitude: geographic coordinate latitude
-longitude: geographic coordinate longitude
-OPTIONAL PARAMETERS:
-name(string): Restaurant name or alias (exact substring match)
-category(string): Cuisine category to filter search results with.
-radius(number): Search radius in meters. (should be less than 8000)
-open_at_local_hour(string): If set true, only search for opened restaurant.
-
-curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645&radius=5000" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645&radius=5000&name=China" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645&radius=5000&category=Vietnamese" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants?latitude=47.616127&longitude=-122.333645&radius=5000&open_at_local_hour=11" -X GET
-
-
-Search for nearby popular cuisine:
+Search cuisines Request
 GET  v1/cuisines
 REQUIRED PARAMETERS:
 latitude: geographic coordinate latitude
 longitude: geographic coordinate longitude
+sort_by: sorting criteria (distance or popularity)
 OPTIONAL PARAMETERS:
-name(string): Cuisine name or alias (exact substring match), if not included, 
-radius(number): Search radius in meters. (should be less than 8000)
-cuisine_type(string): meal_type category to filter search results with 
-meal_type(string): meal_type to filter search results with
+radius(number): Search radius in meters. (0 - 8000)
+offset(number): starting offset 
+limit(number): limit the number of results (0 - 100)
+cuisine_category: cuisine category to filter search reslts with.(Chinese, French, Italian, etc.)
+cuisine_type(string): meal_type category to filter search results with.(Appetizer, Entree, etc.)
+meal_type(string): meal_type to filter search results with.(Brunch, Lunch, Dinner, etc.)
+serve_at_local_hour(number): serve_at_local_hour to filter search results with.( 0-23)
 
-e.g.
-curl "http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitude=-122.333645" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitude=-122.333645&radius=5000" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitude=-122.333645&radius=5000&name=Beef" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitude=-122.333645&radius=5000&cuisine_type=Appetizer" -X GET
-curl http://54.68.133.142:8080/v1/cuisines?latitude=47.616127&longitudae=-122.333645&radius=5000&cuisine_type=Appetizer&meal_type=Lunch" -X GET
-
-Get restaurant information
-Get v1/restaurants/{rid}
+Search cuisines Response
+offset(number): starting offset for the next query
+cuisines(list_of restaurant_distance and restaurant_cuisines): 
+    restaurant_distance: restaurant basic info and distance
+        restaurant_id(string): restaurant unique identifier
+        restaurant_name(string): restaurant name
+        branch_name(string): branch name
+        cuisines_categories(list of string): cuisines categories
+        thumbnail_image(http_url): thumbnail image
+        open_hour(string): open_hour
+        latitude(number): latitude
+        longitude(number): longitude
+        distance(number): distance
+    restaurant_cuisines(list of cuisine_info): top popular cuisines for the restaurant
+        cuisine_info: cuisine inforamtion
+            cuisine_id(string)
+            cuisine_name(string)
+            cuisine_category(string)
+            cuisine_type(string)
+            meal_types(list of string)
+            thumbnail_image(http url)
+            images(list of http url)
+            price(number)
+            serving_hour(string)
+            favorites(number)
+----------------------------------------------------------------------------------------
+Get restaurant detail Request
+Get v1/restaurants/details
 REQUIRED PARAMETERS:
 restaurant_id(string): restaurant unique identifier
 
-curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472" -X GET
-
-Get cuisines for restaurant
-Get v1/restaurants/{rid}/cuisines
+Get restaurant detail Response
+images(http url): restaurant images
+address(string): restaurant address
+contact(string): contact information
+-----------------------------------------------------------------------------------------
+Get cuisines for restaurant Request
+Get v1/restaurants/cuisines
 REQUIRED PARAMETERS:
 restaurant_id(string): restaurant unique identifier
 OPTIONAL PARAMETERS:
-cuisines_type_filter(string):  Cuisine type to filter search results with.
-meal_type_filter(string):  meal type to filter search results with.
+offset(number): starting offset (0 - 1000)
+limit(limit): limit the number of results (0 - 100)
+cuisine_category(string): cuisine category to filter search reslts with.(Chinese, French, etc.)
+cuisines_type(string): cuisine_type to filter search results with.(Appetizer, Entree, etc.)
+meal_type(string):  meal type to filter search results with.(Brunch, Lunch, Dinner, etc.)
+serve_at_local_hour(number): serve_at_local_hour to filter search results with.( 0-23)
 
-curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472/cuisines" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472/cuisines?cuisine_type=Dessert" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472/cuisines?cuisine_type=Appetizer&meal_type=Lunch" -X GET
-
-Favorite restaurant
-Post v1/restaurants/{rid}/favorite
+Get cuisines for restaurant Response
+restaurant_cuisines(list of cuisine_info): top popular cuisines for the restaurant
+    cuisine_info: cuisine inforamtion
+    cuisine_id(string)
+    cuisine_name(string)
+    cuisine_category(string)
+    cuisine_type(string)
+    meal_types(list of string)
+    thumbnail_image(http url)
+    images(list of http url)
+    price(number)
+    serving_hour(string)
+    favorites(number)
+-----------------------------------------------------------------------------------------
+Favorite cuisine Request
+Post v1/restaurants/favorite
 REQUIRED PARAMETERS:
-restaurant_id(string): restaurant unique identifier
+cuisine_id(string): cuisine unique identifier
 
-curl "http://54.68.133.142:8080/v1/restaurants/c23n%2328625618269781472/favorite" -X POST
-
-Favorite cuisine
-Post v1/restaurants/{cid}/favorite
-REQUIRED PARAMETERS:
-cuisine_id(string): restaurant unique identifier
-
-curl "http://54.68.133.142:8080/v1/cuisines/c23n%2328625618269781472%231/favorite" -X POST
-
+Favorite cuisine Response
+favorites(number)
 
