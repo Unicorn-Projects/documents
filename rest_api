@@ -1,5 +1,5 @@
 Search cuisines Request
-GET  v1/cuisines
+GET  v1/cuisines/search
 REQUIRED PARAMETERS:
 latitude: geographic coordinate latitude
 longitude: geographic coordinate longitude
@@ -38,6 +38,12 @@ cuisines(list_of restaurant_distance and restaurant_cuisines):
             price(number)
             serving_hour(string)
             favorites(number)
+
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=popularity" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=1" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=1&offset=1" -X GET
+
 ----------------------------------------------------------------------------------------
 Get restaurant detail Request
 Get v1/restaurants/details
@@ -48,6 +54,29 @@ Get restaurant detail Response
 images(http url): restaurant images
 address(string): restaurant address
 contact(string): contact information
+
+curl "http://54.68.133.142:8080/v1/restaurants/details?restaurant_id=c23n-31972664899273280" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/details?restaurant_id=c23n31972664899273280" -X GET (InvalidRequestException)
+curl "http://54.68.133.142:8080/v1/restaurants/details?restaurant_id=c23n-31972664899273281" -X GET (ResourceNotFoundException)
+----------------------------------------------------------------------------------------
+Get restaurant basics Request
+Get v1/restaurants/basics
+REQUIRED PARAMETERS:
+restaurant_id(string): restaurant unique identifier
+
+Get restaurant detail Response
+restaurant_id(string): restaurant unique identifier
+restaurant_name(string): restaurant name
+branch_name(string): branch name
+cuisines_categories(list of string): cuisines categories
+thumbnail_image(http_url): thumbnail image
+open_hour(string): open_hour
+latitude(number): latitude
+longitude(number): longitude
+
+curl "http://54.68.133.142:8080/v1/restaurants/basics?restaurant_id=c23n-31972664899273280" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/basics?restaurant_id=c23n31972664899273280" -X GET (InvalidRequestException)
+curl "http://54.68.133.142:8080/v1/restaurants/basics?restaurant_id=c23n-31972664899273281" -X GET (ResourceNotFoundException)
 -----------------------------------------------------------------------------------------
 Get cuisines for restaurant Request
 Get v1/restaurants/cuisines
@@ -61,7 +90,7 @@ cuisines_type(string): cuisine_type to filter search results with.(Appetizer, En
 meal_type(string):  meal type to filter search results with.(Brunch, Lunch, Dinner, etc.)
 serve_at_local_hour(number): serve_at_local_hour to filter search results with.( 0-23)
 
-Get cuisines for restaurant Response
+Get cuisines for restaurant Response (This is sorted based on popularity)
 restaurant_cuisines(list of cuisine_info): top popular cuisines for the restaurant
     cuisine_info: cuisine inforamtion
     cuisine_id(string)
@@ -74,12 +103,22 @@ restaurant_cuisines(list of cuisine_info): top popular cuisines for the restaura
     price(number)
     serving_hour(string)
     favorites(number)
+
+curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&limit=5" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=5&limit=5" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=5&cuisine_category=JAPANESE" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=5&cuisine_category=KOREAN&cuisine_type=ENTREE" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=10&meal_type=DINNER" -X GET
 -----------------------------------------------------------------------------------------
 Favorite cuisine Request
-Post v1/restaurants/favorite
+Post v1/cuisines/favorite
 REQUIRED PARAMETERS:
 cuisine_id(string): cuisine unique identifier
 
 Favorite cuisine Response
 favorites(number)
+
+curl "http://54.68.133.142:8080/v1/cuisines/favorite?cuisine_id=c23n-31971194358400814-0003" -X POST
+
 
