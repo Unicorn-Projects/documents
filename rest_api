@@ -11,7 +11,7 @@ limit(number): limit the number of results (0 - 100)
 cuisine_category: cuisine category to filter search reslts with.(Chinese, French, Italian, etc.)
 cuisine_type(string): meal_type category to filter search results with.(Appetizer, Entree, etc.)
 meal_type(string): meal_type to filter search results with.(Brunch, Lunch, Dinner, etc.)
-serve_at_local_hour(number): serve_at_local_hour to filter search results with.( 0-23)
+serve_at_hour(number): serve_at_local_hour to filter search results with.( 0-23)
 
 Search cuisines Response
 offset(number): starting offset for the next query
@@ -43,6 +43,10 @@ curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=
 curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=popularity" -X GET
 curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=1" -X GET
 curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=1&offset=1" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=5&offset=0&cuisine_category=JAPANESE" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=5&offset=0&cuisine_type=ENTREE" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=5&offset=0&cuisine_category=KOREAN&meal_type=DINNER" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=5&offset=0&serve_at_hour=22" -X GET
 
 ----------------------------------------------------------------------------------------
 Get restaurant detail Request
