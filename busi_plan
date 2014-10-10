@@ -1,0 +1,37 @@
+Q: What problem this product helps to solve?
+A: Increasing enjoyment when dining in restaurant
+   1. Find cuisines that users would be more likely to like.
+   2. Improve the quality of service provided by restaurants.  (This will be done later)
+
+Q: What are our targeting customers?
+A: Every person dining in restaurant. (Restaurants are not our targeting customers, however, we do generate revenues by charging monthly subscription fee from restaurants. 
+The reason to justify this is that users do not care about restaurants as much as restaurants care about users. Restaurants will go after users not vice versa). 
+
+Q: How to solve problem of helping find cuisines that users would be more likely to like?
+A: 
+    1. Users need to know what they should expect by looking at the menu, and pictures are more straightforward than descriptions. 
+    2. Users need to know which cuisines are more popular than the others and what their fridends like more (The latter one will be done later)
+    3. Users need to know which cuisines they are more likely to like given consideration of their own preference.  (This will be done later)
+
+Q: What challenges we are facing at early stage:
+A: 
+    1. How to scale is the foremost hurdle that we have to overcome. 
+    2. Convincing restaurants to allow us to take pictures is the second issues.
+    3. All other challenges are minor.
+
+Q: How to solve these challenges:
+A: The key of solving these challenges are getting new users and engaging existing users.
+    1. We start with restaurants with a better food quality and ones caring about how the food looks like. Meanwhile, they should not be too expensive as well. 
+       (Restaurants with 2-3 pricing stars on yelps seems to be a good fit, and those users are more likely to have an iphone). 
+       We provide free photography service for these early adopters and using our app for the first year would be free and they can opt out anytime they want. 
+    2. Put our QR on the table and reduce the cost of using our application as much as possible. We are not aiming 20%-30% percent of users dining at these restaurants. 
+       We are aiming all users having iphones (This is not very likely, still, it is our goal). We really could not afford lose 50% or more of them.        
+    3. We have to guide users to restaurants that we provide pictures. This will hide our scalability problem to some extent and buy us time to scale up. 
+       The good news about this is that users really do not have to choose restaurants among thousands. 
+       The way we achieve this is by allowing users to browse popular cuisines with pictures. Since the users can see the pictures so that they know what they can expect, 
+       and as a result, they do not fully rely on how many likes on this cuisine. 
+       (Both pictures and likes are reference to help the users to figure out how likely they will like the food, and they help each other for that purpose) 
+    4. If we can guide users to restaurants that we provide pictures, it would be easier for us to later convince more restaurants to allow us to take pictures. 
+       Meanwhile, restaurants will notice our application and even come to us to provide their pictures.
+       Since restaurants will go after users, once we have more users, we will have more restaurants coming in. 
+
