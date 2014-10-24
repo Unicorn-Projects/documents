@@ -41,47 +41,36 @@ cuisines(list_of restaurant_distance and restaurant_cuisines):
 
 curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance" -X GET
 curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=popularity" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=1" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=1&offset=1" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=5&offset=0&cuisine_category=JAPANESE" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=5&offset=0&cuisine_type=ENTREE" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=5&offset=0&cuisine_category=KOREAN&meal_type=DINNER" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=5&offset=0&serve_at_hour=22" -X GET
-
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=popularity&limit=1" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=popularity&limit=1&offset=1" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=popularity&limit=5&offset=15&cuisine_categories=JAPANESE%2BGERMAN" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=popularity&limit=5&offset=0&cuisine_type=ENTREE" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=5&offset=0&cuisine_categories=KOREAN&meal_type=DINNER" -X GET
+curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=5&offset=0&serve_at_local_hour=22" -X GET
 ----------------------------------------------------------------------------------------
-Get restaurant detail Request
-Get v1/restaurants/details
+Get restaurant info Request
+Get v1/restaurants
 REQUIRED PARAMETERS:
 restaurant_id(string): restaurant unique identifier
 
-Get restaurant detail Response
-images(http url): restaurant images
-address(string): restaurant address
-contact(string): contact information
+Get restaurant Response
+restaurant_basic:
+    restaurant_id(string): restaurant unique identifier
+    restaurant_name(string): restaurant name
+    cuisines_types(list of string): cuisines types
+    thumbnail_image(http_url): thumbnail image
+    open_hour(string): open_hour
+    latitude(number): latitude
+    longitude(number): longitude
+restaurant_detail:
+    images(http url): restaurant images
+    address(string): restaurant address
+    contact(string): contact information
 
-curl "http://54.68.133.142:8080/v1/restaurants/details?restaurant_id=c23n-31972664899273280" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/details?restaurant_id=c23n31972664899273280" -X GET (InvalidRequestException)
-curl "http://54.68.133.142:8080/v1/restaurants/details?restaurant_id=c23n-31972664899273281" -X GET (ResourceNotFoundException)
+curl "http://54.68.133.142:8080/v1/restaurants?restaurant_id=c23n-31972664899273280" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants?restaurant_id=c23n31972664899273280" -X GET (InvalidRequestException)
+curl "http://54.68.133.142:8080/v1/restaurants?restaurant_id=c23n-31972664899273281" -X GET (ResourceNotFoundException)
 ----------------------------------------------------------------------------------------
-Get restaurant basics Request
-Get v1/restaurants/basics
-REQUIRED PARAMETERS:
-restaurant_id(string): restaurant unique identifier
-
-Get restaurant detail Response
-restaurant_id(string): restaurant unique identifier
-restaurant_name(string): restaurant name
-branch_name(string): branch name
-cuisines_categories(list of string): cuisines categories
-thumbnail_image(http_url): thumbnail image
-open_hour(string): open_hour
-latitude(number): latitude
-longitude(number): longitude
-
-curl "http://54.68.133.142:8080/v1/restaurants/basics?restaurant_id=c23n-31972664899273280" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/basics?restaurant_id=c23n31972664899273280" -X GET (InvalidRequestException)
-curl "http://54.68.133.142:8080/v1/restaurants/basics?restaurant_id=c23n-31972664899273281" -X GET (ResourceNotFoundException)
------------------------------------------------------------------------------------------
 Get cuisines for restaurant Request
 Get v1/restaurants/cuisines
 REQUIRED PARAMETERS:
@@ -111,9 +100,21 @@ restaurant_cuisines(list of cuisine_info): top popular cuisines for the restaura
 curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454" -X GET
 curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&limit=5" -X GET
 curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=5&limit=5" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=5&cuisine_category=JAPANESE" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=5&cuisine_category=KOREAN&cuisine_type=ENTREE" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=5&cuisine_categories=JAPANESE" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=5&cuisine_categories=JAPANESE%2BKOREAN" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=5&cuisine_categories=KOREAN&cuisine_type=ENTREE" -X GET
 curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=10&meal_type=DINNER" -X GET
+curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=10&meal_type=DINNER&serve_at_local_hour=20" -X GET
+-----------------------------------------------------------------------------------------
+Get cuisine details Request
+Get v1/cuisines/details
+REQUIRED PARAMETERS:
+cuisine_id(string): cuisine unique identifier
+
+Get cuisine details Response
+cuisine_description(string)i
+
+curl "http://54.68.133.142:8080/v1/cuisines/detail?cuisine_id=c23n-31971194358400814-0002" -X GET
 -----------------------------------------------------------------------------------------
 Favorite cuisine Request
 Post v1/cuisines/favorite
