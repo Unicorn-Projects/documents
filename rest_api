@@ -1,122 +1,60 @@
-Search cuisines Request
-GET  v1/cuisines/search
-REQUIRED PARAMETERS:
-latitude: geographic coordinate latitude
-longitude: geographic coordinate longitude
-sort_by: sorting criteria (distance or popularity)
-OPTIONAL PARAMETERS:
-radius(number): Search radius in meters. (0 - 8000)
-offset(number): starting offset 
-limit(number): limit the number of results (0 - 100)
-cuisine_category: cuisine category to filter search reslts with.(Chinese, French, Italian, etc.)
-cuisine_type(string): meal_type category to filter search results with.(Appetizer, Entree, etc.)
-meal_type(string): meal_type to filter search results with.(Brunch, Lunch, Dinner, etc.)
-serve_at_hour(number): serve_at_local_hour to filter search results with.( 0-23)
+Health Check
+Get v1/health
 
-Search cuisines Response
-offset(number): starting offset for the next query
-cuisines(list_of restaurant_distance and restaurant_cuisines): 
-    restaurant_distance: restaurant basic info and distance
-        restaurant_id(string): restaurant unique identifier
-        restaurant_name(string): restaurant name
-        branch_name(string): branch name
-        cuisines_categories(list of string): cuisines categories
-        thumbnail_image(http_url): thumbnail image
-        open_hour(string): open_hour
-        latitude(number): latitude
-        longitude(number): longitude
-        distance(number): distance
-    restaurant_cuisines(list of cuisine_info): top popular cuisines for the restaurant
-        cuisine_info: cuisine inforamtion
-            cuisine_id(string)
-            cuisine_name(string)
-            cuisine_category(string)
-            cuisine_type(string)
-            meal_types(list of string)
-            thumbnail_image(http url)
-            images(list of http url)
-            price(number)
-            serving_hour(string)
-            favorites(number)
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/health" -X GET
 
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=popularity" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=popularity&limit=1" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=popularity&limit=1&offset=1" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=popularity&limit=5&offset=15&cuisine_categories=JAPANESE%2BGERMAN" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=popularity&limit=5&offset=0&cuisine_type=ENTREE" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=5&offset=0&cuisine_categories=KOREAN&meal_type=DINNER" -X GET
-curl "http://54.68.133.142:8080/v1/cuisines/search?latitude=47.616442&longitude=-122.336162&sorted_by=distance&limit=5&offset=0&serve_at_local_hour=22" -X GET
 ----------------------------------------------------------------------------------------
-Get restaurant info Request
+
+Get Restaurant Detail
 Get v1/restaurants
 REQUIRED PARAMETERS:
 restaurant_id(string): restaurant unique identifier
 
-Get restaurant Response
-restaurant_basic:
-    restaurant_id(string): restaurant unique identifier
-    restaurant_name(string): restaurant name
-    cuisines_types(list of string): cuisines types
-    thumbnail_image(http_url): thumbnail image
-    open_hour(string): open_hour
-    latitude(number): latitude
-    longitude(number): longitude
-restaurant_detail:
-    images(http url): restaurant images
-    address(string): restaurant address
-    contact(string): contact information
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants?restaurant_id=c22z-70081367814700804" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants?restaurant_id=c22z-70081367814700805" -X GET (ResourceNotFoundException)
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants?restaurant_id=c22z70081367814700804" -X GET (InvalidRequestException)
 
-curl "http://54.68.133.142:8080/v1/restaurants?restaurant_id=c23n-31972664899273280" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants?restaurant_id=c23n31972664899273280" -X GET (InvalidRequestException)
-curl "http://54.68.133.142:8080/v1/restaurants?restaurant_id=c23n-31972664899273281" -X GET (ResourceNotFoundException)
 ----------------------------------------------------------------------------------------
-Get cuisines for restaurant Request
+
+Get Restaurant Menu
+Get v1/restaurants/menu
+REQUIRED PARAMETERS:
+restaurant_id(string): restaurant unique identifier
+
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/menu?restaurant_id=c22z-70081367814700804" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/menu?restaurant_id=c22z-70081367814700805" -X GET (ResourceNotFoundException)
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/menu?restaurant_id=c22z70081367814700804" -X GET (InvalidRequestException)
+
+----------------------------------------------------------------------------------------
+
+Get Cuisines for Restaurant 
 Get v1/restaurants/cuisines
 REQUIRED PARAMETERS:
 restaurant_id(string): restaurant unique identifier
 OPTIONAL PARAMETERS:
-offset(number): starting offset (0 - 1000)
-limit(limit): limit the number of results (0 - 100)
-cuisine_category(string): cuisine category to filter search reslts with.(Chinese, French, etc.)
-cuisines_type(string): cuisine_type to filter search results with.(Appetizer, Entree, etc.)
-meal_type(string):  meal type to filter search results with.(Brunch, Lunch, Dinner, etc.)
-serve_at_local_hour(number): serve_at_local_hour to filter search results with.( 0-23)
+offset(number): starting offset (0 - 1000) default is 0.
+limit(limit): limit the number of results (0 - 1000) default is 3.
+cuisine_categories(string): cuisine categories to filter search reslts with.(Chinese, French, etc.)
+cuisine_types(string): cuisine types to filter search results with.(Appetizer, Entree, etc.)
+meal_types(string):  meal types to filter search results with.(Brunch, Lunch, Dinner, etc.)
+vegetarian(boolean): vegetarian
+gluten_free(boolean): gluten free
+serve_at_local_hour(number): serve_at_local_hour to filter search results with.(0 - 24)
 
-Get cuisines for restaurant Response (This is sorted based on popularity)
-restaurant_cuisines(list of cuisine_info): top popular cuisines for the restaurant
-    cuisine_info: cuisine inforamtion
-    cuisine_id(string)
-    cuisine_name(string)
-    cuisine_category(string)
-    cuisine_type(string)
-    meal_types(list of string)
-    thumbnail_image(http url)
-    images(list of http url)
-    price(number)
-    serving_hour(string)
-    favorites(number)
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&offset=3" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&offset=6&limit=10" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&cuisine_categories=Italian" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&cuisine_types=SOUP%2BPASTA" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&meal_types=BRUNCH" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&vegetarian=true" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&vegetarian=false&gluten_free=true" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&serve_at_local_hour=13.5" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&serve_at_local_hour=21.5" -X GET
 
-curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&limit=5" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=5&limit=5" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=5&cuisine_categories=JAPANESE" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=5&cuisine_categories=JAPANESE%2BKOREAN" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=5&cuisine_categories=KOREAN&cuisine_type=ENTREE" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=10&meal_type=DINNER" -X GET
-curl "http://54.68.133.142:8080/v1/restaurants/cuisines?restaurant_id=c23n-31970036492325454&offset=0&limit=10&meal_type=DINNER&serve_at_local_hour=20" -X GET
------------------------------------------------------------------------------------------
-Get cuisine details Request
-Get v1/cuisines/details
-REQUIRED PARAMETERS:
-cuisine_id(string): cuisine unique identifier
+----------------------------------------------------------------------------------------
 
-Get cuisine details Response
-cuisine_description(string)i
-
-curl "http://54.68.133.142:8080/v1/cuisines/detail?cuisine_id=c23n-31971194358400814-0002" -X GET
------------------------------------------------------------------------------------------
-Favorite cuisine Request
+Favorite Cuisine
 Post v1/cuisines/favorite
 REQUIRED PARAMETERS:
 cuisine_id(string): cuisine unique identifier
@@ -124,6 +62,38 @@ cuisine_id(string): cuisine unique identifier
 Favorite cuisine Response
 favorites(number)
 
-curl "http://54.68.133.142:8080/v1/cuisines/favorite?cuisine_id=c23n-31971194358400814-0003" -X POST
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/favorite?cuisine_id=c22z-70081367814700804-0015" -X POST
 
+----------------------------------------------------------------------------------------
 
+Search Cuisines 
+GET  v1/cuisines/search
+REQUIRED PARAMETERS:
+latitude(number): geographic coordinate latitude
+longitude(number): geographic coordinate longitude
+sort_by(string): sorting criteria (distance or popularity)
+local_hour(number): local hour used to determine if restaurants open
+OPTIONAL PARAMETERS:
+radius(number): Search radius in meters. (0 - 8000)
+offset(number): starting offset 
+limit(number): limit the number of results (0 - 100)
+cuisine_categories(string): cuisine category to filter search reslts with.(Chinese, French, Italian, etc.)
+cuisine_types(string): meal_type category to filter search results with.(Appetizer, Entree, etc.)
+meal_types(string): meal_type to filter search results with.(Brunch, Lunch, Dinner, etc.)
+vegetarian(boolean): vegetarian
+gluten_free(boolean): gluten free
+open_now(boolean): open now
+
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=distance&local_hour=13.5" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=popularity&local_hour=13.5" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=popularity&local_hour=13.5&radius=100" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=1600" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&offset=1" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&limit=2" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&cuisine_categories=Italian%2BChinese" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&cuisine_types=IceCream" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&meal_types=Brunch%2BDinner" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&meal_types=Brunch%2BDinner" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&open_now=true" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=14.5&radius=6400&open_now=true" -X GET
