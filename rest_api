@@ -71,7 +71,7 @@ GET  v1/cuisines/search
 REQUIRED PARAMETERS:
 latitude(number): geographic coordinate latitude
 longitude(number): geographic coordinate longitude
-sort_by(string): sorting criteria (distance or popularity)
+sort_by(string): sorting criteria (distance or restaurant_popularity or cuisine_popularity)
 local_hour(number): local hour used to determine if restaurants open
 OPTIONAL PARAMETERS:
 radius(number): Search radius in meters. (0 - 8000)
@@ -87,15 +87,15 @@ open_now(boolean): open now
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=distance&local_hour=13.5" -X GET
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.6623265538809&longitude=-122.315362086634&sorted_by=distance&local_hour=13.5&limit=3&radius=8000&offset=0" -X GET
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.6623265538809&longitude=-122.315362086634&sorted_by=distance&local_hour=13.5&limit=3&radius=8000&offset=0&cuisine_categories=Italian&cuisine_types=SOUP" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=popularity&local_hour=13.5" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=popularity&local_hour=13.5&radius=100" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=1600" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&offset=1" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&limit=2" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&cuisine_categories=Italian%2BChinese" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&cuisine_types=IceCream" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&meal_types=Brunch%2BDinner" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&meal_types=Brunch%2BDinner" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=13.5&radius=6400&open_now=true" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=popularity&local_hour=14.5&radius=6400&open_now=true" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=distance&local_hour=13.5" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=distance&local_hour=13.5&radius=100" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=1600" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&offset=1" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&limit=2" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&cuisine_categories=Italian%2BChinese" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&cuisine_types=IceCream" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&meal_types=Brunch%2BDinner" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&meal_types=Brunch%2BDinner" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&open_now=true" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=14.5&radius=6400&open_now=true" -X GET
