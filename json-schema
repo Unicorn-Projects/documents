@@ -7,13 +7,13 @@
             "type": "object",
             "description": “Restaurant Info",
             "properties": {
-                "restaurant_id": {"type": "string"},
-                "restaurant_name": {"type": "string"},
-                "logo_image": {"type": "string"},
-                "latitude": {"type": "number"},
-                "longitude": {"type": "number"},
-                "open_hour": {"type": "string"},
-                "open_now": {"type": "boolean"}
+                "restaurant_id": { "type": "string" },
+                "restaurant_name": { "type": "string" },
+                "logo_image": { "type": "string" },
+                "latitude": { "type": "number" },
+                "longitude": { "type": "number" },
+                "open_hour": { "type": "string" },
+                "open_now": { "type": "boolean" }
             },
             "required": ["restaurant_id", "restaurant_name", "latitude", "longitude", "open_hour", "open_now"]
         },
@@ -35,23 +35,23 @@
             "type": "array",
             "description": "Restaurant interior, exterior and promotion images"
             "minItems": 1,
-            "items": {"type": "string"},
+            "items": { "type": "string" },
             "uniqueItems": true
         },
       	"address": {
             "type": "object",
             "description": "Address of the restaurant",
             "properties": {
-                "local_address": {"type": "string"},
-                "city": {"type": "string"},
-                "zip_code": {"type": "string"},
+                "local_address": { "type": "string" },
+                "city": { "type": "string" },
+                "zip_code": { "type": "string" },
                 "state": {"type": "string"},
                 "country": {"type": "string"}
             },
             "required": ["local_address", "city", "zip_code", "state", "country"]
         },
-        "contact": {"type": "string"},
-        "website": {"type": "string"}
+        "contact": { "type": "string" },
+        "website": { "type": "string" }
     },
     "required": ["images", "address", "contact", "website"]
 }
@@ -61,19 +61,19 @@
     "description": “Cuisine Info",
     "type": "object",
     "properties": {
-        "cuisine_id": {"type": "string"},
-        "cuisine_name": {"type": "string"},
-        "cuisine_description": {"type": "string"},
-        "vegetarian": {"type": "boolean"},
-        "gluten_free": {"type": "boolean"},
+        "cuisine_id": { "type": "string" },
+        "cuisine_name": { "type": "string" },
+        "cuisine_description": { "type": "string" },
+        "vegetarian": { "type": "boolean" },
+        "gluten_free": { "type": "boolean" },
         "meal_types": {
             "type": "array",
             "description": "meal types(for example: Breakfast, Brunch, Lunch, Dinner)"
             "minItems": 1,
-            "items": {"type": "string"},
+            "items": { "type": "string" },
             "uniqueItems": true
         },
-        "image_url": {"type": "string"},
+        "image_url": { "type": "string" },
         "image_ratio": {
             "type": "number",
             "description": "Image height to width ratio"
@@ -96,9 +96,9 @@
     "description": “Error”,
     "type": "object",
     "properties": {
-        "error_type": {"type": "string"},
-        "error_code": {"type": "string"},
-        "error_desc": {"type": "string"}
+        "error_type": { "type": "string" },
+        "error_code": { "type": "string" },
+        "error_desc": { "type": "string" }
     },
     "required": ["error_type", "error_code", "error_desc"]
 }
