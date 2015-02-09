@@ -25,7 +25,7 @@
     },
     "required": ["restaurant", "distance"]
 }
-
+--------------------------------------------------------------------------------------------------------------------------------
 {
     "title": "Restaurant Detail",
     "description": "Restaurant Detail Info",
@@ -55,9 +55,9 @@
     },
     "required": ["images", "address", "contact", "website"]
 }
-
+--------------------------------------------------------------------------------------------------------------------------------
 {
-    "title": “Cuisine Info”,
+    "title": “Cuisine”,
     "description": “Cuisine Info",
     "type": "object",
     "properties": {
@@ -90,10 +90,10 @@
     },
     "required": ["cuisine_id", "cuisine_name", "cuisine_description", "vegetarian", "gluten_free", "meal_types", "image_url", "image_ratio", "price", "favorites"]
 }
-
+--------------------------------------------------------------------------------------------------------------------------------
 {
     "title": "Error",
-    "description": “Error”,
+    "description": "Error Info",
     "type": "object",
     "properties": {
         "error_type": { "type": "string" },
