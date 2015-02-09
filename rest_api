@@ -155,6 +155,34 @@ vegetarian(boolean): vegetarian
 gluten_free(boolean): gluten free
 open_now(boolean): open now
 
+{
+    "title": "Restaurant Distance Info",
+    "description": "Restaurant Distance Info",
+    "type": "object",
+    "properties": {
+        "restaurant": {
+            "type": "object",
+	    "description": “Restaurant Info”,
+            "properties": {
+                "restaurant_id": {"type": "string"},
+                "restaurant_name": {"type": "string"},
+                "logo_image": {"type": "string"},
+                "latitude": {"type": "number"},
+                "longitude": {"type": "number"},
+                "open_hour": {"type": "string"},
+                "open_now": {"type": "boolean"}
+            },
+            "required": ["restaurant_id", "restaurant_name", "latitude", "longitude", "open_hour", "open_now"]
+        },
+        "distance": {
+	    "type": "number",
+	    "description": “Restaurant distance to the search coordinate”,
+	    "minimum": 0
+        }
+    },
+    "required": ["restaurant", "distance"]
+}
+
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=distance&local_hour=13.5" -X GET
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.6623265538809&longitude=-122.315362086634&sorted_by=distance&local_hour=13.5&limit=3&radius=8000&offset=0" -X GET
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.6623265538809&longitude=-122.315362086634&sorted_by=distance&local_hour=13.5&limit=3&radius=8000&offset=0&cuisine_categories=Italian&cuisine_types=SOUP" -X GET
