@@ -10,42 +10,6 @@ Get v1/restaurants
 REQUIRED PARAMETERS:
 restaurant_id(string): restaurant unique identifier
 
-JSON SCHEMA
-{
-    "title": "Restaurant Detail",
-    "description": "Restaurant Detail Info",
-    "type": "object",
-    "properties": {
-        "images": {
-            "type": "array",
-	    "description": "restaurant interior, exterior and promotion images"
-            "minItems": 1,
-            "items": {"type": "string"},
-            "uniqueItems": true
-        },
-	"address": {
-            "type": "object",
-            "properties": {
-                "local_address": {"type": "string"},
-                "city": {"type": "string"},
-                "zip_code": {"type": "string"},
-                "state": {"type": "string"},
-                "country": {"type": "string"}
-            },
-            "required": ["local_address", "city", "zip_code”, "state", "country"]
-        },
-        "contact": {
-            "description": "Contact of the restaurant",
-            "type": "string"
-        },
-        "website": {
-            "description": "Website of the restaurant",
-            "type": "string"
-        }
-    },
-    "required": ["images", "address”, “contact", "website"]
-}
-
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants?restaurant_id=c22z-70081367814700804" -X GET
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants?restaurant_id=c22z-70081367814700805" -X GET (ResourceNotFoundException)
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants?restaurant_id=c22z70081367814700804" -X GET (InvalidRequestException)
@@ -76,41 +40,6 @@ meal_types(string):  meal types to filter search results with.(Brunch, Lunch, Di
 vegetarian(boolean): vegetarian
 gluten_free(boolean): gluten free
 serve_at_local_hour(number): serve_at_local_hour to filter search results with.(0 - 24)
-
-{
-    "title": “Cuisine Info”,
-    "description": “Cuisine Info",
-    "type": "object",
-    "properties": {
-        "cuisine_id": {"type": "string"},
-        "cuisine_name": {"type": "string"},
-        "cuisine_description": {"type": "string"},
- 	"vegetarian": {"type": "boolean"},
-	"gluten_free": {"type": "boolean"}, 
-	"meal_types": {
-            "type": "array",
-	    "description": "meal types(for example: Breakfast, Brunch, Lunch, Dinner)"
-            "minItems": 1,
-            "items": {"type": "string"},
-            "uniqueItems": true
-        },
-        "image_url": {"type": "string"},
-        "image_ratio": {
-            "type": "number",
-            "description": "Image height to width ratio"
-        },
-	"price": {
-	    "type": "number",
-            "minimum": 0,
-            "exclusiveMinimum": true
-	},
-	"favorites": {
-	    "type": "integer",
-	    "minimum": 0
-        }
-    },
-    "required": ["cuisine_id", "cuisine_name", "cuisine_description", "vegetarian", "gluten_free", "meal_types", "image_url", "image_ratio", "price", "favorites"]
-}
 
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804" -X GET
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&offset=3" -X GET
@@ -154,34 +83,6 @@ meal_types(string): meal_type to filter search results with.(Brunch, Lunch, Dinn
 vegetarian(boolean): vegetarian
 gluten_free(boolean): gluten free
 open_now(boolean): open now
-
-{
-    "title": "Restaurant Distance Info",
-    "description": "Restaurant Distance Info",
-    "type": "object",
-    "properties": {
-        "restaurant": {
-            "type": "object",
-	    "description": “Restaurant Info”,
-            "properties": {
-                "restaurant_id": {"type": "string"},
-                "restaurant_name": {"type": "string"},
-                "logo_image": {"type": "string"},
-                "latitude": {"type": "number"},
-                "longitude": {"type": "number"},
-                "open_hour": {"type": "string"},
-                "open_now": {"type": "boolean"}
-            },
-            "required": ["restaurant_id", "restaurant_name", "latitude", "longitude", "open_hour", "open_now"]
-        },
-        "distance": {
-	    "type": "number",
-	    "description": “Restaurant distance to the search coordinate”,
-	    "minimum": 0
-        }
-    },
-    "required": ["restaurant", "distance"]
-}
 
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=distance&local_hour=13.5" -X GET
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/search?latitude=47.6623265538809&longitude=-122.315362086634&sorted_by=distance&local_hour=13.5&limit=3&radius=8000&offset=0" -X GET
