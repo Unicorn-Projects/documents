@@ -1,0 +1,51 @@
+Get Restaurant Detail
+REQUIRED PARAMETERS:
+restaurant_id(string): restaurant unique identifier
+
+RESPONSE:
+Restaurant Detail Info
+
+{
+    "title": "Restaurant Detail",
+    "description": "Restaurant Detail Info",
+    "type": "object",
+    "properties": {
+        "images": {
+            "type": "array",
+            "description": "Restaurant interior, exterior and promotion images",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "uniqueItems": true
+        },
+      	"address": {
+            "type": "object",
+            "description": "Address of the restaurant",
+            "properties": {
+                "local_address": { "type": "string" },
+                "city": { "type": "string" },
+                "zip_code": { "type": "string" },
+                "state": {"type": "string"},
+                "country": {"type": "string"}
+            },
+            "required": ["local_address", "city", "zip_code", "state", "country"]
+        },
+        "contact": { "type": "string" },
+        "website": { "type": "string" }
+    },
+    "required": ["images", "address", "contact", "website"]
+}
+
+Sample Response:
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants?restaurant_id=c22z-70081367814700804" -X GET
+{
+  "images" : [ "Agrodolce_h01", "Agrodolce_h02", "Agrodolce_h03", "Agrodolce_h04", "Agrodolce_h05", "Agrodolce_h06", "Agrodolce_h07" ],
+  "address" : {
+    "local_address" : "709 North 35th Street",
+    "city" : "Seattle",
+    "zip_code" : "98103",
+    "state" : "WA",
+    "country" : "U.S"
+  },
+  "contact" : "(206) 547-9707",
+  "website" : "http://agrodolcerestaurant.net/"
+}
