@@ -1,0 +1,29 @@
+{
+    "title": "Restaurant Detail",
+    "description": "Restaurant Detail Info",
+    "type": "object",
+    "properties": {
+        "images": {
+            "type": "array",
+            "description": "Restaurant interior, exterior and promotion images",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "uniqueItems": true
+        },
+      	"address": {
+            "type": "object",
+            "description": "Address of the restaurant",
+            "properties": {
+                "local_address": { "type": "string" },
+                "city": { "type": "string" },
+                "zip_code": { "type": "string" },
+                "state": {"type": "string"},
+                "country": {"type": "string"}
+            },
+            "required": ["local_address", "city", "zip_code", "state", "country"]
+        },
+        "contact": { "type": "string" },
+        "website": { "type": "string" }
+    },
+    "required": ["images", "address", "contact", "website"]
+}

@@ -1,0 +1,61 @@
+{
+    "title": "RestaurantMenu",
+    "description": "Restaurant Menu",
+    "type": "object",
+    "properties": {
+        "restaurant_menu": {
+            "type": "array",
+            "description": "restaurant menu",
+            "minItems": 1,
+            "items": { 
+                "type": "object",
+                "properties": {
+                    "menu_category": {
+                        "type": "string",
+                        "description": "menu category: large plates, small plates, dissert, Pasta"
+                    },
+                    "menu_cuisines": {
+                        "type": "object",
+                        "oneOf": [
+                            { "$ref": "#/definitions/cuisine" }
+                        ]
+                    }
+                }
+            },
+            "uniqueItems": true
+        }
+    },
+    "definitions": {
+        "cuisine": {
+            "properties": {
+                "cuisine_id": { "type": "string" },
+                "cuisine_name": { "type": "string" },
+                "cuisine_description": { "type": "string" },
+                "vegetarian": { "type": "boolean" },
+                "gluten_free": { "type": "boolean" },
+                "meal_types": {
+                    "type": "array",
+                    "description": "meal types(for example: Breakfast, Brunch, Lunch, Dinner)",
+                    "minItems": 1,
+                    "items": { "type": {"enum":["Breakfast", "Brunch", "Lunch", "Dinner"]}},
+                    "uniqueItems": true
+                },
+                "image_url": { "type": "string" },
+                "image_ratio": {
+                    "type": "number",
+                    "description": "Image height to width ratio"
+                },
+                "price": {
+                    "type": "number",
+                    "minimum": 0,
+                    "exclusiveMinimum": true
+                },
+                "favorites": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        }
+    },
+    "required": ["restaurant_menu"]
+}

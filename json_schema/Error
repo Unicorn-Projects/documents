@@ -1,0 +1,11 @@
+{
+    "title": "Error",
+    "description": "Error Info",
+    "type": "object",
+    "properties": {
+        "error_type": { "type": "string" },
+        "error_code": { "type": "string" },
+        "error_desc": { "type": "string" }
+    },
+    "required": ["error_type", "error_code", "error_desc"]
+}
