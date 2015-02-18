@@ -1,0 +1,245 @@
+Get Cuisines for Restaurant 
+REQUIRED PARAMETERS:
+restaurant_id(string): restaurant unique identifier
+OPTIONAL PARAMETERS:
+offset(number): starting offset (0 - 1000) default is 0.
+limit(limit): limit the number of results (0 - 1000) default is 20.
+cuisine_categories(string): cuisine categories to filter search results with.(American, Italian, French, etc.)
+cuisine_types(string): cuisine types to filter search results with.(Appetizer, Entree, etc.)
+meal_types(string):  meal types to filter search results with.(Brunch, Lunch, Dinner, etc.)
+vegetarian(boolean): vegetarian
+gluten_free(boolean): gluten free
+serve_at_local_hour(number): serve_at_local_hour to filter search results with.(0 - 24)
+
+RESPONSE:
+Restaurant Cuisines: a list of Cuisine Info
+
+{
+    "title": "Restaurant Cuisines”,
+    "description": "Restaurant Cuisines Info”,
+    "type": "object",
+    "properties": {
+        "restaurant_cuisines”: {
+            "type": "array",
+            "description": "restaurant cuisines”,
+            "items": { 
+                "type": "object",
+                "oneOf": [
+                    { "$ref": "#/definitions/cuisine" }
+                ]
+            },
+            "uniqueItems": true
+        }
+    },
+    "definitions": {
+        "cuisine": {
+            "title": "Cuisine",
+            "description": "Cuisine Info",
+            "type": "object",
+            "properties": {
+                "cuisine_id": { "type": "string" },
+                "cuisine_name": { "type": "string" },
+                "cuisine_description": { "type": "string" },
+                "vegetarian": { "type": "boolean" },
+                "gluten_free": { "type": "boolean" },
+                "meal_types": {
+                    "type": "array",
+                    "description": "meal types(for example: Breakfast, Brunch, Lunch, Dinner)",
+                    "minItems": 1,
+                    "items": { 
+                        "type": {"string"}
+                    },
+                    "uniqueItems": true
+                },
+                "image_url": { "type": "string" },
+                "image_ratio": {
+                    "type": "number",
+                    "description": "Image height to width ratio"
+                },
+                "price": {
+                    "type": "number",
+                    "minimum": 0,
+                    "exclusiveMinimum": true
+                },
+                "favorites": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            },
+            "required": ["cuisine_id", "cuisine_name", "cuisine_description", "vegetarian", "gluten_free", "meal_types", "image_url", "image_ratio", "price", "favorites"]  
+        }
+    },
+    "required": ["restaurant_menu"]
+}
+
+Sample Response:
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804" -X GET
+
+{
+  "restaurant_cuisines" : [ {
+    "cuisine_id" : "c22z-70081367814700804-0008",
+    "cuisine_name" : "Beets & Burrata",
+    "cuisine_description" : "red & candy stripe beets, pomegranate molasses, cocoa nibs",
+    "vegetarian" : false,
+    "gluten_free" : true,
+    "meal_types" : [ "DINNER", "LUNCH" ],
+    "image_url" : "Agrodolce_07",
+    "image_ratio" : 1.5,
+    "price" : 14.0,
+    "favorites" : 301
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0004",
+    "cuisine_name" : "Red Wheat Spaghetti & Clams",
+    "cuisine_description" : "chopped caper, calabrian chili, basil",
+    "vegetarian" : false,
+    "gluten_free" : true,
+    "meal_types" : [ "DINNER", "LUNCH" ],
+    "image_url" : "Agrodolce_03",
+    "image_ratio" : 1.5,
+    "price" : 17.0,
+    "favorites" : 294
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0001",
+    "cuisine_name" : "Caramelized Broccoli",
+    "cuisine_description" : "almond, chili flake, anchovy, vinaigrette",
+    "vegetarian" : true,
+    "gluten_free" : true,
+    "meal_types" : [ "BRUNCH", "DINNER", "LUNCH" ],
+    "image_url" : "Agrodolce_00",
+    "image_ratio" : 1.5,
+    "price" : 10.0,
+    "favorites" : 292
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0014",
+    "cuisine_name" : "Bronte Pistachio Gelato",
+    "cuisine_description" : "meringue, freeze-dried strawberry",
+    "vegetarian" : false,
+    "gluten_free" : true,
+    "meal_types" : [ "DINNER" ],
+    "image_url" : "Agrodolce_13",
+    "image_ratio" : 1.5,
+    "price" : 8.0,
+    "favorites" : 285
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0015",
+    "cuisine_name" : "Limoncello Sorbetto",
+    "cuisine_description" : "candied lemon, candied fennel, toasted hazelnut",
+    "vegetarian" : false,
+    "gluten_free" : true,
+    "meal_types" : [ "DINNER", "LUNCH" ],
+    "image_url" : "Agrodolce_14",
+    "image_ratio" : 1.5,
+    "price" : 8.0,
+    "favorites" : 279
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0007",
+    "cuisine_name" : "Antipasti Misto",
+    "cuisine_description" : "zoe's salami, pickled vegetable, chickpea yogurt dip",
+    "vegetarian" : false,
+    "gluten_free" : true,
+    "meal_types" : [ "DINNER", "LUNCH" ],
+    "image_url" : "Agrodolce_06",
+    "image_ratio" : 1.5,
+    "price" : 14.0,
+    "favorites" : 271
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0002",
+    "cuisine_name" : "Celery Root Soup",
+    "cuisine_description" : "crispy speck, aged balsamic vinegar, fresh parsley",
+    "vegetarian" : true,
+    "gluten_free" : true,
+    "meal_types" : [ "DINNER", "LUNCH" ],
+    "image_url" : "Agrodolce_01",
+    "image_ratio" : 1.5,
+    "price" : 7.0,
+    "favorites" : 258
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0009",
+    "cuisine_name" : "Radicchio & Arugula Salad",
+    "cuisine_description" : "spiced compressed apples, almonds, cider-honey vinaigrette",
+    "vegetarian" : true,
+    "gluten_free" : true,
+    "meal_types" : [ "BRUNCH", "DINNER", "LUNCH" ],
+    "image_url" : "Agrodolce_08",
+    "image_ratio" : 1.5,
+    "price" : 9.0,
+    "favorites" : 253
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0013",
+    "cuisine_name" : "Theo Chocolate Budino",
+    "cuisine_description" : "graham cracker crumble, marshmallow, toasted almond",
+    "vegetarian" : false,
+    "gluten_free" : true,
+    "meal_types" : [ "DINNER", "LUNCH" ],
+    "image_url" : "Agrodolce_12",
+    "image_ratio" : 1.5,
+    "price" : 8.0,
+    "favorites" : 251
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0005",
+    "cuisine_name" : "Anderson Ranch Grass Fed Lamb Burger",
+    "cuisine_description" : "spicy mustard, mostarda, provolone",
+    "vegetarian" : false,
+    "gluten_free" : true,
+    "meal_types" : [ "BRUNCH", "DINNER", "LUNCH" ],
+    "image_url" : "Agrodolce_04",
+    "image_ratio" : 1.5,
+    "price" : 17.0,
+    "favorites" : 251
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0010",
+    "cuisine_name" : "Golden Raisin Bruschetta",
+    "cuisine_description" : "white anchovy, pine nuts, pickled serrano peppers",
+    "vegetarian" : true,
+    "gluten_free" : true,
+    "meal_types" : [ "DINNER" ],
+    "image_url" : "Agrodolce_09",
+    "image_ratio" : 1.5,
+    "price" : 10.0,
+    "favorites" : 241
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0003",
+    "cuisine_name" : "Bluebird Grains Emmer Rigatoni",
+    "cuisine_description" : "marinara, mama lil's pepper, grana padano cheese",
+    "vegetarian" : true,
+    "gluten_free" : true,
+    "meal_types" : [ "BRUNCH", "DINNER", "LUNCH" ],
+    "image_url" : "Agrodolce_02",
+    "image_ratio" : 1.5,
+    "price" : 16.0,
+    "favorites" : 231
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0006",
+    "cuisine_name" : "Wild Mushroom Panini",
+    "cuisine_description" : "red onion agrodolce, provolone, dijon mustard",
+    "vegetarian" : false,
+    "gluten_free" : false,
+    "meal_types" : [ "BRUNCH", "LUNCH" ],
+    "image_url" : "Agrodolce_05",
+    "image_ratio" : 1.5,
+    "price" : 12.0,
+    "favorites" : 204
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0011",
+    "cuisine_name" : "Melted Leek Ravioli",
+    "cuisine_description" : "ricotta, smoked cauliflower puree, thyme",
+    "vegetarian" : false,
+    "gluten_free" : false,
+    "meal_types" : [ "DINNER" ],
+    "image_url" : "Agrodolce_10",
+    "image_ratio" : 1.5,
+    "price" : 17.0,
+    "favorites" : 184
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0012",
+    "cuisine_name" : "Roasted Half Chicken",
+    "cuisine_description" : "braised einka, seared sunchokes, medjool dates",
+    "vegetarian" : false,
+    "gluten_free" : true,
+    "meal_types" : [ "DINNER" ],
+    "image_url" : "Agrodolce_11",
+    "image_ratio" : 1.5,
+    "price" : 26.0,
+    "favorites" : 178
+  } ]
+}
