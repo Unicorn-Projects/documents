@@ -1,0 +1,97 @@
+{
+    "title": "Cuisines",
+    "description": "Cuisines Info",
+    "type": "object",
+    "properties": {
+        "next_offset": { "type": "number" },
+        "cuisines": {
+            "type": "array",
+            "description": "cuisines",
+            "items": { 
+                "type": "object",
+                "properties": {
+                    "restaurant_distance": {
+                        "type": "object",
+                        "oneOf": [
+                            { "$ref": "#/definitions/restaurant_distance" }
+                        ]
+                    },
+                    "restaurant_cuisines": {
+                        "type": "array",
+                        "items": { 
+                            "type": "object",
+                            "oneOf": [
+                                { "$ref": "#/definitions/cuisine" }
+                            ]
+                        }
+                    }
+                }
+            },
+            "uniqueItems": true
+        }
+    },
+    "definitions": {
+        "cuisine": {
+            "title": "Cuisine",
+            "description": "Cuisine Info",
+            "type": "object",
+            "properties": {
+                "cuisine_id": { "type": "string" },
+                "cuisine_name": { "type": "string" },
+                "cuisine_description": { "type": "string" },
+                "vegetarian": { "type": "boolean" },
+                "gluten_free": { "type": "boolean" },
+                "meal_types": {
+                    "type": "array",
+                    "description": "meal types(for example: Breakfast, Brunch, Lunch, Dinner)",
+                    "minItems": 1,
+                    "items": { "type": "string" },
+                    "uniqueItems": true
+                },
+                "image_url": { "type": "string" },
+                "image_ratio": {
+                    "type": "number",
+                    "description": "Image height to width ratio"
+                },
+                "price": {
+                    "type": "number",
+                    "minimum": 0,
+                    "exclusiveMinimum": true
+                },
+                "favorites": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            },
+            "required": ["cuisine_id", "cuisine_name", "cuisine_description", "vegetarian", "gluten_free", "meal_types", "image_url", "image_ratio", "price", "favorites"]
+        }, 
+        "restaurant_distance": {
+            "title": "Restaurant Distance",
+            "description": "Restaurant Distance Info",
+            "type": "object",
+            "properties": {
+                "restaurant": {
+                    "type": "object",
+                    "description": "Restaurant Info",
+                    "properties": {
+                        "restaurant_id": { "type": "string" },
+                        "restaurant_name": { "type": "string" },
+                        "logo_image": { "type": "string" },
+                        "latitude": { "type": "number" },
+                        "longitude": { "type": "number" },
+                        "open_hour": { "type": "string" },
+                        "open_now": { "type": "boolean" }
+                    },
+                    "required": ["restaurant_id", "restaurant_name", "latitude", "longitude", "open_hour", "open_now"]
+                },
+                "distance": {
+                    "type": "number",
+                    "description": "Restaurant distance to the search coordinate",
+                    "minimum": 0
+                }
+            },
+            "required": ["restaurant", "distance"]
+        }
+    },
+    "required": ["cuisines"]
+}
