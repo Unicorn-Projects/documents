@@ -29,7 +29,8 @@
         "favorites": {
             "type": "integer",
             "minimum": 0
-        }
+        },
+        "favorited": { "type": "boolean" }
     },
     "required": ["cuisine_id", "cuisine_name", "cuisine_description", "vegetarian", "gluten_free", "meal_types", "image_url", "image_ratio", "price", "favorites"]
 }
