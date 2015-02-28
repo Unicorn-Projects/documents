@@ -1,6 +1,6 @@
 {
-    "title": "Restaurant Distance",
-    "description": "Restaurant Distance Info",
+    "title": "Restaurant Info",
+    "description": "Restaurant Info",
     "type": "object",
     "properties": {
         "restaurant_id": { "type": "string" },
