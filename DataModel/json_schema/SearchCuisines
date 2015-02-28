@@ -10,10 +10,10 @@
             "items": { 
                 "type": "object",
                 "properties": {
-                    "restaurant_distance": {
+                    "restaurant": {
                         "type": "object",
                         "oneOf": [
-                            { "$ref": "#/definitions/restaurant_distance" }
+                            { "$ref": "#/definitions/restaurant" }
                         ]
                     },
                     "restaurant_cuisines": {
@@ -66,9 +66,9 @@
             },
             "required": ["cuisine_id", "cuisine_name", "cuisine_description", "vegetarian", "gluten_free", "meal_types", "image_url", "image_ratio", "price", "favorites"]
         }, 
-        "restaurant_distance": {
-            "title": "Restaurant Distance",
-            "description": "Restaurant Distance Info",
+        "restaurant": {
+            "title": "Restaurant",
+            "description": "Restaurant Info",
             "type": "object",
             "properties": {
                 "restaurant_id": { "type": "string" },
