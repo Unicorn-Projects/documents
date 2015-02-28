@@ -54,7 +54,8 @@
                 "favorites": {
                     "type": "integer",
                     "minimum": 0
-                }
+                },
+                "favorited": { "type": "boolean" },
             }
         }
     },
