@@ -61,7 +61,8 @@
                 "favorites": {
                     "type": "integer",
                     "minimum": 0
-                }
+                },
+                "favorited": { "type": "boolean" }
             },
             "required": ["cuisine_id", "cuisine_name", "cuisine_description", "vegetarian", "gluten_free", "meal_types", "image_url", "image_ratio", "price", "favorites"]
         }, 
@@ -70,28 +71,22 @@
             "description": "Restaurant Distance Info",
             "type": "object",
             "properties": {
-                "restaurant": {
-                    "type": "object",
-                    "description": "Restaurant Info",
-                    "properties": {
-                        "restaurant_id": { "type": "string" },
-                        "restaurant_name": { "type": "string" },
-                        "logo_image": { "type": "string" },
-                        "logo_version": { "type": "number" },
-                        "latitude": { "type": "number" },
-                        "longitude": { "type": "number" },
-                        "open_hour": { "type": "string" },
-                        "open_now": { "type": "boolean" }
-                    },
-                    "required": ["restaurant_id", "restaurant_name", "latitude", "longitude", "open_hour", "open_now"]
-                },
+                "restaurant_id": { "type": "string" },
+                "restaurant_name": { "type": "string" },
+                "logo_image": { "type": "string" },
+                "logo_version": { "type": "number" },
+                "latitude": { "type": "number" },
+                "longitude": { "type": "number" },
+                "open_hour": { "type": "string" },
+                "open_now": { "type": "boolean" },
                 "distance": {
                     "type": "number",
                     "description": "Restaurant distance to the search coordinate",
                     "minimum": 0
-                }
+                },
+                "followed": { "type": "boolean" }
             },
-            "required": ["restaurant", "distance"]
+            "required": ["restaurant_id", "restaurant_name", "latitude", "longitude", "open_hour", "open_now"]
         }
     },
     "required": ["cuisines"]
