@@ -73,8 +73,7 @@
             "properties": {
                 "restaurant_id": { "type": "string" },
                 "restaurant_name": { "type": "string" },
-                "logo_image": { "type": "string" },
-                "logo_version": { "type": "number" },
+                "logo_url": { "type": "string" },
                 "latitude": { "type": "number" },
                 "longitude": { "type": "number" },
                 "open_hour": { "type": "string" },
