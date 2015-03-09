@@ -16,7 +16,6 @@
             "uniqueItems": true
         },
         "image_url": { "type": "string" },
-        "image_version": { "type": "number" },
         "image_ratio": {
             "type": "number",
             "description": "Image height to width ratio"
