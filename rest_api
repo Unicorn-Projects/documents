@@ -13,9 +13,9 @@ restaurant_id(string): restaurant unique identifier
 RESPONSE:
 Restaurant Detail Info
 
-curl "http://api.tasteit.io/v1/restaurants?restaurant_id=c22z-70081367814700804" -X GET
-curl "http://api.tasteit.io/v1/restaurants?restaurant_id=c22z-70081367814700805" -X GET (ResourceNotFoundException)
-curl "http://api.tasteit.io/v1/restaurants?restaurant_id=c22z70081367814700804" -X GET (InvalidRequestException)
+curl "https://api.tasteit.io/v1/restaurants?restaurant_id=c22z-70081367814700804" -X GET
+curl "https://api.tasteit.io/v1/restaurants?restaurant_id=c22z-70081367814700805" -X GET (ResourceNotFoundException)
+curl "https://api.tasteit.io/v1/restaurants?restaurant_id=c22z70081367814700804" -X GET (InvalidRequestException)
 
 ----------------------------------------------------------------------------------------
 
@@ -27,9 +27,9 @@ restaurant_id(string): restaurant unique identifier
 RESPONSE:
 Restaurant Menu: a list in which each item contains a Menu Category (string) and a Menu Cuisines (a list of Cuisine Info)
 
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/menu?restaurant_id=c22z-70081367814700804" -X GET
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/menu?restaurant_id=c22z-70081367814700805" -X GET (ResourceNotFoundException)
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/menu?restaurant_id=c22z70081367814700804" -X GET (InvalidRequestException)
+curl "https://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/menu?restaurant_id=c22z-70081367814700804" -X GET
+curl "https://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/menu?restaurant_id=c22z-70081367814700805" -X GET (ResourceNotFoundException)
+curl "https://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/menu?restaurant_id=c22z70081367814700804" -X GET (InvalidRequestException)
 
 ----------------------------------------------------------------------------------------
 
@@ -50,16 +50,16 @@ serve_at_local_hour(number): serve_at_local_hour to filter search results with.(
 RESPONSE:
 Restaurant Cuisines: a list of Cuisine Info
 
-curl "http://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804" -X GET
-curl "http://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&offset=3" -X GET
-curl "http://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&offset=6&limit=10" -X GET
-curl "http://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&cuisine_categories=Italian" -X GET
-curl "http://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&cuisine_types=SOUP%2BPASTA" -X GET
-curl "http://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&meal_types=BRUNCH" -X GET
-curl "http://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&vegetarian=true" -X GET
-curl "http://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&vegetarian=false&gluten_free=true" -X GET
-curl "http://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&serve_at_local_hour=13.5" -X GET
-curl "http://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&serve_at_local_hour=21.5" -X GET
+curl "https://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804" -X GET
+curl "https://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&offset=3" -X GET
+curl "https://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&offset=6&limit=10" -X GET
+curl "https://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&cuisine_categories=Italian" -X GET
+curl "https://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&cuisine_types=SOUP%2BPASTA" -X GET
+curl "https://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&meal_types=BRUNCH" -X GET
+curl "https://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&vegetarian=true" -X GET
+curl "https://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&vegetarian=false&gluten_free=true" -X GET
+curl "https://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&serve_at_local_hour=13.5" -X GET
+curl "https://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367814700804&limit=15&serve_at_local_hour=21.5" -X GET
 
 ----------------------------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ cuisine_id(string): cuisine unique identifier
 RESPONSE
 favorites(number)
 
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/favorite?cuisine_id=c22z-70081367814700804-0015" -X POST
+curl "https://Test-768510837.us-west-2.elb.amazonaws.com/v1/cuisines/favorite?cuisine_id=c22z-70081367814700804-0015" -X POST
 
 ----------------------------------------------------------------------------------------
 
@@ -96,18 +96,18 @@ open_now(boolean): open now
 RESPONSE:
 It contains the next offset and cuisines (a list in which each item contains Restaurant Distance and Restaurant Cuisines(a list of Cuisine Info))
 
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=distance&local_hour=13.5" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.6623265538809&longitude=-122.315362086634&sorted_by=distance&local_hour=13.5&limit=3&radius=8000&offset=0" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.6623265538809&longitude=-122.315362086634&sorted_by=distance&local_hour=13.5&limit=3&radius=8000&offset=0&cuisine_categories=Italian&cuisine_types=SOUP" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=distance&local_hour=13.5" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=distance&local_hour=13.5&radius=100" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=1600" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&offset=1" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&limit=2" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&cuisine_categories=Italian%2BChinese" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&cuisine_types=IceCream" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&meal_types=Brunch%2BDinner" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&meal_types=Brunch%2BDinner" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&open_now=true" -X GET
-curl "http://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=14.5&radius=6400&open_now=true" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=distance&local_hour=13.5" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.6623265538809&longitude=-122.315362086634&sorted_by=distance&local_hour=13.5&limit=3&radius=8000&offset=0" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.6623265538809&longitude=-122.315362086634&sorted_by=distance&local_hour=13.5&limit=3&radius=8000&offset=0&cuisine_categories=Italian&cuisine_types=SOUP" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=distance&local_hour=13.5" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.650520&longitude=-122.349370&sorted_by=distance&local_hour=13.5&radius=100" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=1600" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&offset=1" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&limit=2" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&cuisine_categories=Italian%2BChinese" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&cuisine_types=IceCream" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&meal_types=Brunch%2BDinner" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&meal_types=Brunch%2BDinner" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&open_now=true" -X GET
+curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=14.5&radius=6400&open_now=true" -X GET
