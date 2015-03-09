@@ -3,7 +3,7 @@
     "description": "Restaurant Detail Info",
     "type": "object",
     "properties": {
-        "images": {
+        "images_urls": {
             "type": "array",
             "description": "Restaurant interior, exterior and promotion images",
             "minItems": 1,
