@@ -9,7 +9,7 @@
             "properties": {
                 "restaurant_id": { "type": "string" },
                 "restaurant_name": { "type": "string" },
-                "logo_image": { "type": "string" },
+                "logo_url": { "type": "string" },
                 "latitude": { "type": "number" },
                 "longitude": { "type": "number" },
                 "open_hour": { "type": "string" },
@@ -31,7 +31,7 @@
     "description": "Restaurant Detail Info",
     "type": "object",
     "properties": {
-        "images": {
+        "images_urls": {
             "type": "array",
             "description": "Restaurant interior, exterior and promotion images"
             "minItems": 1,
@@ -53,7 +53,7 @@
         "contact": { "type": "string" },
         "website": { "type": "string" }
     },
-    "required": ["images", "address", "contact", "website"]
+    "required": ["images_urls", "address", "contact", "website"]
 }
 --------------------------------------------------------------------------------------------------------------------------------
 {
