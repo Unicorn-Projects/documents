@@ -27,9 +27,9 @@ restaurant_id(string): restaurant unique identifier
 RESPONSE:
 Restaurant Menu: a list in which each item contains a Menu Category (string) and a Menu Cuisines (a list of Cuisine Info)
 
-curl "https://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/menu?restaurant_id=c22z-70081367814700804" -X GET
-curl "https://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/menu?restaurant_id=c22z-70081367814700805" -X GET (ResourceNotFoundException)
-curl "https://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/menu?restaurant_id=c22z70081367814700804" -X GET (InvalidRequestException)
+curl "https://api.tasteit.io/v1/restaurants/menu?restaurant_id=c22z-70081367814700804" -X GET
+curl "https://api.tasteit.io/v1/restaurants/menu?restaurant_id=c22z-70081367814700805" -X GET (ResourceNotFoundException)
+curl "https://api.tasteit.io/v1/restaurants/menu?restaurant_id=c22z70081367814700804" -X GET (InvalidRequestException)
 
 ----------------------------------------------------------------------------------------
 
