@@ -38,7 +38,7 @@ Restaurant Detail Info
 Sample Response:
 curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants?restaurant_id=c22z-70081367814700804" -X GET
 {
-  "images" : [ "Agrodolce_h01", "Agrodolce_h02", "Agrodolce_h03", "Agrodolce_h04", "Agrodolce_h05", "Agrodolce_h06", "Agrodolce_h07" ],
+  "images_urls" : [ "https://photo.tasteit.io/c22z-70081367814700804/promotion/01", "https://photo.tasteit.io/c22z-70081367814700804/promotion/02", "https://photo.tasteit.io/c22z-70081367814700804/promotion/03", "https://photo.tasteit.io/c22z-70081367814700804/promotion/04", "https://photo.tasteit.io/c22z-70081367814700804/promotion/05", "https://photo.tasteit.io/c22z-70081367814700804/promotion/06", "https://photo.tasteit.io/c22z-70081367814700804/promotion/07" ],
   "address" : {
     "local_address" : "709 North 35th Street",
     "city" : "Seattle",
@@ -47,5 +47,496 @@ curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants?restauran
     "country" : "U.S"
   },
   "contact" : "(206) 547-9707",
-  "website" : "http://agrodolcerestaurant.net/"
+  "website" : "http://agrodolcerestaurant.net/",
+  "open_hours" : {
+    "1" : [ {
+      "meal_type" : "DINNER",
+      "start_time" : "17:00",
+      "end_time" : "22:00"
+    }, {
+      "meal_type" : "LUNCH",
+      "start_time" : "11:30",
+      "end_time" : "14:30"
+    } ],
+    "2" : [ {
+      "meal_type" : "DINNER",
+      "start_time" : "17:00",
+      "end_time" : "22:00"
+    }, {
+      "meal_type" : "LUNCH",
+      "start_time" : "11:30",
+      "end_time" : "14:30"
+    } ],
+    "3" : [ {
+      "meal_type" : "DINNER",
+      "start_time" : "17:00",
+      "end_time" : "22:00"
+    }, {
+      "meal_type" : "LUNCH",
+      "start_time" : "11:30",
+      "end_time" : "14:30"
+    } ],
+    "4" : [ {
+      "meal_type" : "DINNER",
+      "start_time" : "17:00",
+      "end_time" : "22:00"
+    }, {
+      "meal_type" : "LUNCH",
+      "start_time" : "11:30",
+      "end_time" : "14:30"
+    } ],
+    "5" : [ {
+      "meal_type" : "DINNER",
+      "start_time" : "17:00",
+      "end_time" : "22:30"
+    }, {
+      "meal_type" : "LUNCH",
+      "start_time" : "11:30",
+      "end_time" : "14:30"
+    } ],
+    "6" : [ {
+      "meal_type" : "BRUNCH",
+      "start_time" : "10:00",
+      "end_time" : "14:30"
+    }, {
+      "meal_type" : "DINNER",
+      "start_time" : "17:00",
+      "end_time" : "22:30"
+    } ],
+    "7" : [ {
+      "meal_type" : "BRUNCH",
+      "start_time" : "10:00",
+      "end_time" : "14:30"
+    }, {
+      "meal_type" : "DINNER",
+      "start_time" : "17:00",
+      "end_time" : "22:00"
+    } ]
+  }
 }
+
+## hand writen old version json schema
+{
+    "title": "Restaurant Detail",
+    "description": "Restaurant Detail Info",
+    "type": "object",
+    "properties": {
+        "images_urls": {
+            "type": "array",
+            "description": "Restaurant interior, exterior and promotion images",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "uniqueItems": true
+        },
+      	"address": {
+            "type": "object",
+            "description": "Address of the restaurant",
+            "properties": {
+                "local_address": { "type": "string" },
+                "city": { "type": "string" },
+                "zip_code": { "type": "string" },
+                "state": {"type": "string"},
+                "country": {"type": "string"}
+            },
+            "required": ["local_address", "city", "zip_code", "state", "country"]
+        },
+        "contact": { "type": "string" },
+        "website": { "type": "string" }
+    },
+    "required": ["images", "address", "contact", "website"]
+}
+
+## new version generated from real response from http://jsonschema.net
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804",
+  "type": "object",
+  "properties": {
+    "images_urls": {
+      "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/images_urls",
+      "type": "array",
+      "items": [
+        {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/images_urls/0",
+          "type": "string"
+        },
+        {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/images_urls/1",
+          "type": "string"
+        },
+        {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/images_urls/2",
+          "type": "string"
+        },
+        {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/images_urls/3",
+          "type": "string"
+        },
+        {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/images_urls/4",
+          "type": "string"
+        },
+        {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/images_urls/5",
+          "type": "string"
+        },
+        {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/images_urls/6",
+          "type": "string"
+        }
+      ],
+      "required": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    "address": {
+      "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/address",
+      "type": "object",
+      "properties": {
+        "local_address": {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/address/local_address",
+          "type": "string"
+        },
+        "city": {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/address/city",
+          "type": "string"
+        },
+        "zip_code": {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/address/zip_code",
+          "type": "string"
+        },
+        "state": {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/address/state",
+          "type": "string"
+        },
+        "country": {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/address/country",
+          "type": "string"
+        }
+      }
+    },
+    "contact": {
+      "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/contact",
+      "type": "string"
+    },
+    "website": {
+      "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/website",
+      "type": "string"
+    },
+    "open_hours": {
+      "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours",
+      "type": "object",
+      "properties": {
+        "1": {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/1",
+          "type": "array",
+          "items": [
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/1/0",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/1/0/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/1/0/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/1/0/end_time",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/1/1",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/1/1/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/1/1/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/1/1/end_time",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "2": {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/2",
+          "type": "array",
+          "items": [
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/2/0",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/2/0/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/2/0/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/2/0/end_time",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/2/1",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/2/1/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/2/1/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/2/1/end_time",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "3": {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/3",
+          "type": "array",
+          "items": [
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/3/0",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/3/0/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/3/0/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/3/0/end_time",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/3/1",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/3/1/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/3/1/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/3/1/end_time",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "4": {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/4",
+          "type": "array",
+          "items": [
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/4/0",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/4/0/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/4/0/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/4/0/end_time",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/4/1",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/4/1/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/4/1/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/4/1/end_time",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "5": {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/5",
+          "type": "array",
+          "items": [
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/5/0",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/5/0/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/5/0/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/5/0/end_time",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/5/1",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/5/1/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/5/1/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/5/1/end_time",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "6": {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/6",
+          "type": "array",
+          "items": [
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/6/0",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/6/0/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/6/0/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/6/0/end_time",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/6/1",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/6/1/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/6/1/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/6/1/end_time",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "7": {
+          "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/7",
+          "type": "array",
+          "items": [
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/7/0",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/7/0/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/7/0/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/7/0/end_time",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/7/1",
+              "type": "object",
+              "properties": {
+                "meal_type": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/7/1/meal_type",
+                  "type": "string"
+                },
+                "start_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/7/1/start_time",
+                  "type": "string"
+                },
+                "end_time": {
+                  "id": "http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/restaurants?restaurant_id=c22z-70081367814700804/open_hours/7/1/end_time",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "images_urls",
+    "address",
+    "contact",
+    "website",
+    "open_hours"
+  ]
+}
+
+
