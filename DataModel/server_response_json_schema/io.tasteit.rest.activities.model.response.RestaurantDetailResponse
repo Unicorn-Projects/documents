@@ -1,0 +1,72 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantDetailResponse",
+  "properties" : {
+    "website" : {
+      "type" : "string",
+      "required" : true
+    },
+    "address" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:AddressResponse",
+      "required" : true,
+      "properties" : {
+        "country" : {
+          "type" : "string",
+          "required" : true
+        },
+        "city" : {
+          "type" : "string",
+          "required" : true
+        },
+        "local_address" : {
+          "type" : "string",
+          "required" : true
+        },
+        "state" : {
+          "type" : "string",
+          "required" : true
+        },
+        "zip_code" : {
+          "type" : "string",
+          "required" : true
+        }
+      }
+    },
+    "images_urls" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "contact" : {
+      "type" : "string",
+      "required" : true
+    },
+    "open_hours" : {
+      "type" : "object",
+      "required" : true,
+      "additionalProperties" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:MealTypeOpenHoursResponse",
+          "properties" : {
+            "start_time" : {
+              "type" : "string",
+              "required" : true
+            },
+            "meal_type" : {
+              "type" : "string",
+              "required" : true
+            },
+            "end_time" : {
+              "type" : "string",
+              "required" : true
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:CuisineResponse",
+  "properties" : {
+    "cuisine_name" : {
+      "type" : "string",
+      "required" : true
+    },
+    "cuisine_description" : {
+      "type" : "string",
+      "required" : true
+    },
+    "favorites" : {
+      "type" : "integer",
+      "required" : true
+    },
+    "meal_types" : {
+      "type" : "array",
+      "required" : true,
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "image_url" : {
+      "type" : "string"
+    },
+    "price" : {
+      "type" : "number",
+      "required" : true
+    },
+    "vegetarian" : {
+      "type" : "boolean",
+      "required" : true
+    },
+    "image_ratio" : {
+      "type" : "number",
+      "required" : true
+    },
+    "cuisine_id" : {
+      "type" : "string",
+      "required" : true
+    },
+    "gluten_free" : {
+      "type" : "boolean",
+      "required" : true
+    },
+    "favorited" : {
+      "type" : "boolean"
+    }
+  }
+}

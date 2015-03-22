@@ -1,0 +1,18 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:ErrorResponse",
+  "properties" : {
+    "error_desc" : {
+      "type" : "string",
+      "required" : true
+    },
+    "error_type" : {
+      "type" : "string",
+      "required" : true
+    },
+    "error_code" : {
+      "type" : "string",
+      "required" : true
+    }
+  }
+}

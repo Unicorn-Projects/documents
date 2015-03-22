@@ -1,0 +1,23 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:TokenResponse",
+  "properties" : {
+    "access_token" : {
+      "type" : "string",
+      "required" : true
+    },
+    "principal" : {
+      "type" : "integer",
+      "required" : true
+    },
+    "expire_at" : {
+      "type" : "integer",
+      "required" : true,
+      "format" : "UTC_MILLISEC"
+    },
+    "token_type" : {
+      "type" : "string",
+      "required" : true
+    }
+  }
+}

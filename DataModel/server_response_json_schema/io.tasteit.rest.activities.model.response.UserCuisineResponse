@@ -1,0 +1,14 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:UserCuisineResponse",
+  "properties" : {
+    "cuisine_id" : {
+      "type" : "string",
+      "required" : true
+    },
+    "timestamp" : {
+      "type" : "integer",
+      "required" : true
+    }
+  }
+}
