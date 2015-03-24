@@ -111,3 +111,15 @@ curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-12
 curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&meal_types=Brunch%2BDinner" -X GET
 curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=13.5&radius=6400&open_now=true" -X GET
 curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-122.315660&sorted_by=distance&local_hour=14.5&radius=6400&open_now=true" -X GET
+
+FacebookLogin
+GET  v1/tokens
+REQUIRED PARAMETERS:
+REQUIRED PARAMETERS:
+grant_type(String): facebook, 
+fb_user_token(String): facebook access token
+
+RESPONSE:
+It contains access token used for future authentication & authorization, token type and user principal
+
+curl "https://api.tasteit.io/v1/tokens?fb_user_token=CAAWIP0CSYboBAEi8Q1ZApCvfZBZCxEreAlmKkCZCfAHVCqA3DapXVOUoyCUeCKwavyiZCzih5gWxkJuWvNZC8Vc79v67nVtCQMTKUNdY2obbVqbGvEPGzcEYUa3SMg3gfMLomjIzAoZCsDpcniZCkEvHofZBtnkYlHnIALT7ZBIPkKe2t9mRZBlZBfNKGZApiMBAZCN7mpZBZBglJ8a0cZB0zelOtXhfMxnDyEZAm8ZBto84sUCUwvsZBxjVwbeatlM8" -X GET
