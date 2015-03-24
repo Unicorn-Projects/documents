@@ -115,7 +115,6 @@ curl "https://api.tasteit.io/v1/cuisines/search?latitude=47.662272&longitude=-12
 FacebookLogin
 GET  v1/tokens
 REQUIRED PARAMETERS:
-REQUIRED PARAMETERS:
 grant_type(String): facebook, 
 fb_user_token(String): facebook access token
 
@@ -124,3 +123,17 @@ It contains access token used for future authentication & authorization, token t
 JSON: https://github.com/Unicorn-Projects/documents/blob/master/DataModel/server_response_json_schema/io.tasteit.rest.activities.model.response.TokenResponse
 
 curl "https://api.tasteit.io/v1/tokens?fb_user_token=CAAWIP0CSYboBAEi8Q1ZApCvfZBZCxEreAlmKkCZCfAHVCqA3DapXVOUoyCUeCKwavyiZCzih5gWxkJuWvNZC8Vc79v67nVtCQMTKUNdY2obbVqbGvEPGzcEYUa3SMg3gfMLomjIzAoZCsDpcniZCkEvHofZBtnkYlHnIALT7ZBIPkKe2t9mRZBlZBfNKGZApiMBAZCN7mpZBZBglJ8a0cZB0zelOtXhfMxnDyEZAm8ZBto84sUCUwvsZBxjVwbeatlM8" -X GET
+
+GetUserProfile
+GET  v1/users/profile/{user_principal}
+REQUIRED PARAMETERS:
+user_principal(Long): user principal id, 
+access_token(String): access token
+(Authorization Header is Required)
+
+How to generate Authorization Header
+echo "user prinicipal:access token" | base64
+
+RESPONSE:
+curl -v "http://localhost:8080/v1/tokens/user_principal" -H "Authorization: Bearer <Generated Authorization Header>" -X GET
+
