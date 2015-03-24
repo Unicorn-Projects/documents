@@ -127,13 +127,23 @@ curl "https://api.tasteit.io/v1/tokens?fb_user_token=CAAWIP0CSYboBAEi8Q1ZApCvfZB
 GetUserProfile
 GET  v1/users/profile/{user_principal}
 REQUIRED PARAMETERS:
-user_principal(Long): user principal id, 
+user_display_name(String): user principal id, 
 access_token(String): access token
-(Authorization Header is Required)
+access_token(user_facebook_id): access token
+access_token(String): access token
+access_token(String): access token
+
+    "user_display_name";
+    public static final String USER_PROFILE_PHOTO_URL = "user_profile_photo_url";
+    public static final String USER_FACEBOOK_ID = "user_facebook_id";
+
+
 
 How to generate Authorization Header
 echo "user prinicipal:access token" | base64
 
 RESPONSE:
-curl -v "http://localhost:8080/v1/tokens/user_principal" -H "Authorization: Bearer <Generated Authorization Header>" -X GET
+It contains user_principal, access_token, user_display_name, user_profile_photo_url, userFacebookId 
 
+
+curl -v "http://localhost:8080/v1/tokens/user_principal" -H "Authorization: Bearer <Generated Authorization Header>" -X GET
