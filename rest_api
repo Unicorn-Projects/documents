@@ -121,5 +121,6 @@ fb_user_token(String): facebook access token
 
 RESPONSE:
 It contains access token used for future authentication & authorization, token type and user principal
+JSON: https://github.com/Unicorn-Projects/documents/blob/master/DataModel/server_response_json_schema/io.tasteit.rest.activities.model.response.TokenResponse
 
 curl "https://api.tasteit.io/v1/tokens?fb_user_token=CAAWIP0CSYboBAEi8Q1ZApCvfZBZCxEreAlmKkCZCfAHVCqA3DapXVOUoyCUeCKwavyiZCzih5gWxkJuWvNZC8Vc79v67nVtCQMTKUNdY2obbVqbGvEPGzcEYUa3SMg3gfMLomjIzAoZCsDpcniZCkEvHofZBtnkYlHnIALT7ZBIPkKe2t9mRZBlZBfNKGZApiMBAZCN7mpZBZBglJ8a0cZB0zelOtXhfMxnDyEZAm8ZBto84sUCUwvsZBxjVwbeatlM8" -X GET
