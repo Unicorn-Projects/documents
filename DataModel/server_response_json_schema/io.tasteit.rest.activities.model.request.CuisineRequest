@@ -1,0 +1,33 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:CuisineRequest",
+  "properties" : {
+    "geoRestaurantCuisineId" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:io:tasteit:rest:repository:model:GeoRestaurantCuisineId",
+      "properties" : {
+        "restaurantCuisineId" : {
+          "type" : "string"
+        },
+        "geoHashPrefix" : {
+          "type" : "string"
+        },
+        "cuisineId" : {
+          "type" : "string"
+        },
+        "geoRestaurantId" : {
+          "type" : "object",
+          "id" : "urn:jsonschema:io:tasteit:rest:repository:model:GeoRestaurantId",
+          "properties" : {
+            "geoHashPrefix" : {
+              "type" : "string"
+            },
+            "restaurantId" : {
+              "type" : "integer"
+            }
+          }
+        }
+      }
+    }
+  }
+}

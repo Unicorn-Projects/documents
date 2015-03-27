@@ -1,0 +1,22 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:GenerateTokenRequest",
+  "properties" : {
+    "facebookUserToken" : {
+      "type" : "string"
+    },
+    "password" : {
+      "type" : "string"
+    },
+    "credential" : {
+      "type" : "string"
+    },
+    "loginName" : {
+      "type" : "string"
+    },
+    "grantType" : {
+      "type" : "string",
+      "enum" : [ "USER_PASSWORD", "CUSTOMER_CREDENTIAL", "FACEBOOK" ]
+    }
+  }
+}

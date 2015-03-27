@@ -1,0 +1,57 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:portal:UpdateCuisineRequest",
+  "properties" : {
+    "cuisine_name" : {
+      "type" : "string",
+      "required" : true
+    },
+    "cuisine_description" : {
+      "type" : "string",
+      "required" : true
+    },
+    "meal_types" : {
+      "type" : "array",
+      "required" : true,
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "menu_category" : {
+      "type" : "string",
+      "required" : true
+    },
+    "restaurant_id" : {
+      "type" : "integer",
+      "required" : true
+    },
+    "glutenfree" : {
+      "type" : "boolean",
+      "required" : true
+    },
+    "price" : {
+      "type" : "number",
+      "required" : true
+    },
+    "vegetarian" : {
+      "type" : "boolean",
+      "required" : true
+    },
+    "cuisine_id" : {
+      "type" : "integer",
+      "required" : true
+    },
+    "cuisine_type" : {
+      "type" : "string",
+      "required" : true
+    },
+    "cuisine_category" : {
+      "type" : "string",
+      "required" : true
+    },
+    "geohash_prefix" : {
+      "type" : "string",
+      "required" : true
+    }
+  }
+}

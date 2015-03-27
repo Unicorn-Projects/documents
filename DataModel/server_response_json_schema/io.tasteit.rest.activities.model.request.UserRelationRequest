@@ -1,0 +1,15 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:UserRelationRequest",
+  "properties" : {
+    "beforeTimestamp" : {
+      "type" : "integer"
+    },
+    "limit" : {
+      "type" : "integer"
+    },
+    "userPrincipal" : {
+      "type" : "integer"
+    }
+  }
+}

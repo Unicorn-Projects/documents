@@ -1,0 +1,9 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:UserProfileRequest",
+  "properties" : {
+    "userPrincipal" : {
+      "type" : "integer"
+    }
+  }
+}

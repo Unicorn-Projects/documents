@@ -8,10 +8,6 @@
         "type" : "string"
       }
     },
-    "distance" : {
-      "type" : "number",
-      "required" : true
-    },
     "logo_url" : {
       "type" : "string"
     },

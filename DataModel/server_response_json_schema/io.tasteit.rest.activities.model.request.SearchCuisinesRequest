@@ -1,0 +1,65 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:SearchCuisinesRequest",
+  "properties" : {
+    "cuisineCategories" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "coordinate" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:ch:hsr:geohash:WGS84Point",
+      "properties" : {
+        "latitude" : {
+          "type" : "number"
+        },
+        "longitude" : {
+          "type" : "number"
+        }
+      }
+    },
+    "offset" : {
+      "type" : "integer"
+    },
+    "cuisineTypes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "sortingCriteria" : {
+      "type" : "string",
+      "enum" : [ "DISTANCE", "DISTANCE_ALL", "RESTAURANT_POPULARITY", "CUISINE_POPULARITY" ]
+    },
+    "glutenFree" : {
+      "type" : "boolean"
+    },
+    "mealTypes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "localTime" : {
+      "type" : "number"
+    },
+    "dayOfWeek" : {
+      "type" : "string",
+      "enum" : [ "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY" ]
+    },
+    "openNowOnly" : {
+      "type" : "boolean"
+    },
+    "limit" : {
+      "type" : "integer"
+    },
+    "vegetarian" : {
+      "type" : "boolean"
+    },
+    "radius" : {
+      "type" : "integer"
+    }
+  }
+}

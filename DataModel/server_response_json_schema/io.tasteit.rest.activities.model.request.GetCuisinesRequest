@@ -1,0 +1,55 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:GetCuisinesRequest",
+  "properties" : {
+    "cuisineCategories" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "serveTime" : {
+      "type" : "number"
+    },
+    "dayOfWeek" : {
+      "type" : "string",
+      "enum" : [ "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY" ]
+    },
+    "offset" : {
+      "type" : "integer"
+    },
+    "cuisineTypes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "limit" : {
+      "type" : "integer"
+    },
+    "vegetarian" : {
+      "type" : "boolean"
+    },
+    "glutenFree" : {
+      "type" : "boolean"
+    },
+    "mealTypes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "geoRestaurantId" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:io:tasteit:rest:repository:model:GeoRestaurantId",
+      "properties" : {
+        "geoHashPrefix" : {
+          "type" : "string"
+        },
+        "restaurantId" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}

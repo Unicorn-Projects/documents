@@ -63,6 +63,18 @@ curl "https://api.tasteit.io/v1/restaurants/cuisines?restaurant_id=c22z-70081367
 
 ----------------------------------------------------------------------------------------
 
+
+Update Cuisine for Restaurant 
+Restaurant authentication token is required.
+Post v1/restaurants/cuisine
+REQUIRED JSON OBJECT:
+UpdateCuisineRequest(refer to DataModel/server_response_json_schema/io.tasteit.rest.activities.model.request.portal.UpdateCuisineRequest)
+
+RESPONSE:
+Updated cuisine info, in CuisineResponse(refer to DataModel/server_response_json_schema/io.tasteit.rest.activities.model.response.CuisineResponse)
+
+
+----------------------------------------------------------------------------------------
 Favorite Cuisine
 Post v1/cuisines/favorite
 REQUIRED PARAMETERS:

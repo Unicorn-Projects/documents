@@ -1,0 +1,16 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:RevokeTokenRequest",
+  "properties" : {
+    "principal" : {
+      "type" : "integer"
+    },
+    "tokenType" : {
+      "type" : "string",
+      "enum" : [ "ACCESS_TOKEN" ]
+    },
+    "token" : {
+      "type" : "string"
+    }
+  }
+}
