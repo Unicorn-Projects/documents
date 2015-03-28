@@ -13,9 +13,9 @@ restaurant_id(string): restaurant unique identifier
 RESPONSE:
 Restaurant Detail Info
 
-curl "https://api.tasteit.io/v1/restaurants?restaurant_id=c22z-70081367814700804" -X GET
-curl "https://api.tasteit.io/v1/restaurants?restaurant_id=c22z-70081367814700805" -X GET (ResourceNotFoundException)
-curl "https://api.tasteit.io/v1/restaurants?restaurant_id=c22z70081367814700804" -X GET (InvalidRequestException)
+curl "https://api.tasteit.io/v1/restaurants/detail?restaurant_id=c22z-70081367814700804" -X GET
+curl "https://api.tasteit.io/v1/restaurants/detail?restaurant_id=c22z-70081367814700805" -X GET (ResourceNotFoundException)
+curl "https://api.tasteit.io/v1/restaurants/detail?restaurant_id=c22z70081367814700804" -X GET (InvalidRequestException)
 
 ----------------------------------------------------------------------------------------
 
