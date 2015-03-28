@@ -36,7 +36,7 @@ Restaurant Detail Info
 }
 
 Sample Response:
-curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants?restaurant_id=c22z-70081367814700804" -X GET
+curl "http://Test-768510837.us-west-2.elb.amazonaws.com/v1/restaurants/detail?restaurant_id=c22z-70081367814700804" -X GET
 {
   "images_urls" : [ "https://photo.tasteit.io/c22z-70081367814700804/promotion/01", "https://photo.tasteit.io/c22z-70081367814700804/promotion/02", "https://photo.tasteit.io/c22z-70081367814700804/promotion/03", "https://photo.tasteit.io/c22z-70081367814700804/promotion/04", "https://photo.tasteit.io/c22z-70081367814700804/promotion/05", "https://photo.tasteit.io/c22z-70081367814700804/promotion/06", "https://photo.tasteit.io/c22z-70081367814700804/promotion/07" ],
   "address" : {
