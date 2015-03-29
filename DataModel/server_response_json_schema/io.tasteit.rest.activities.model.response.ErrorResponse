@@ -2,15 +2,15 @@
   "type" : "object",
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:ErrorResponse",
   "properties" : {
-    "error_desc" : {
+    "errorDesc" : {
       "type" : "string",
       "required" : true
     },
-    "error_type" : {
+    "errorType" : {
       "type" : "string",
       "required" : true
     },
-    "error_code" : {
+    "errorCode" : {
       "type" : "string",
       "required" : true
     }

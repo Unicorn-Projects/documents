@@ -2,16 +2,13 @@
   "type" : "object",
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantResponse",
   "properties" : {
-    "serving_meal_types" : {
+    "servingMealTypes" : {
       "type" : "array",
       "items" : {
         "type" : "string"
       }
     },
-    "logo_url" : {
-      "type" : "string"
-    },
-    "restaurant_id" : {
+    "restaurantName" : {
       "type" : "string",
       "required" : true
     },
@@ -19,12 +16,15 @@
       "type" : "number",
       "required" : true
     },
+    "restaurantId" : {
+      "type" : "string",
+      "required" : true
+    },
     "followed" : {
       "type" : "boolean"
     },
-    "restaurant_name" : {
-      "type" : "string",
-      "required" : true
+    "logoUrl" : {
+      "type" : "string"
     },
     "longitude" : {
       "type" : "number",

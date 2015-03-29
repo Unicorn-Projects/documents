@@ -2,7 +2,7 @@
   "type" : "object",
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:SearchCuisinesResponse",
   "properties" : {
-    "next_offset" : {
+    "nextOffset" : {
       "type" : "integer",
       "required" : true
     },
@@ -11,23 +11,20 @@
       "required" : true,
       "items" : {
         "type" : "object",
-        "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:SearchCuisinesPerRestaurantResponse",
+        "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:SearchCuisinesForRestaurantResponse",
         "properties" : {
           "restaurant" : {
             "type" : "object",
             "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantResponse",
             "required" : true,
             "properties" : {
-              "serving_meal_types" : {
+              "servingMealTypes" : {
                 "type" : "array",
                 "items" : {
                   "type" : "string"
                 }
               },
-              "logo_url" : {
-                "type" : "string"
-              },
-              "restaurant_id" : {
+              "restaurantName" : {
                 "type" : "string",
                 "required" : true
               },
@@ -35,12 +32,15 @@
                 "type" : "number",
                 "required" : true
               },
+              "restaurantId" : {
+                "type" : "string",
+                "required" : true
+              },
               "followed" : {
                 "type" : "boolean"
               },
-              "restaurant_name" : {
-                "type" : "string",
-                "required" : true
+              "logoUrl" : {
+                "type" : "string"
               },
               "longitude" : {
                 "type" : "number",
@@ -55,46 +55,46 @@
               "type" : "object",
               "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:CuisineResponse",
               "properties" : {
-                "cuisine_name" : {
-                  "type" : "string",
-                  "required" : true
-                },
-                "cuisine_description" : {
-                  "type" : "string",
-                  "required" : true
-                },
                 "favorites" : {
                   "type" : "integer",
                   "required" : true
                 },
-                "meal_types" : {
-                  "type" : "array",
-                  "required" : true,
-                  "items" : {
-                    "type" : "string"
-                  }
-                },
-                "image_url" : {
-                  "type" : "string"
+                "imageRatio" : {
+                  "type" : "number",
+                  "required" : true
                 },
                 "price" : {
                   "type" : "number",
+                  "required" : true
+                },
+                "imageUrl" : {
+                  "type" : "string"
+                },
+                "cuisineId" : {
+                  "type" : "string",
+                  "required" : true
+                },
+                "cuisineDesc" : {
+                  "type" : "string",
                   "required" : true
                 },
                 "vegetarian" : {
                   "type" : "boolean",
                   "required" : true
                 },
-                "image_ratio" : {
-                  "type" : "number",
-                  "required" : true
-                },
-                "cuisine_id" : {
-                  "type" : "string",
-                  "required" : true
-                },
-                "gluten_free" : {
+                "glutenFree" : {
                   "type" : "boolean",
+                  "required" : true
+                },
+                "mealTypes" : {
+                  "type" : "array",
+                  "required" : true,
+                  "items" : {
+                    "type" : "string"
+                  }
+                },
+                "cuisineName" : {
+                  "type" : "string",
                   "required" : true
                 },
                 "favorited" : {

@@ -2,7 +2,7 @@
   "type" : "object",
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:UserCuisineResponse",
   "properties" : {
-    "cuisine_id" : {
+    "cuisineId" : {
       "type" : "string",
       "required" : true
     },

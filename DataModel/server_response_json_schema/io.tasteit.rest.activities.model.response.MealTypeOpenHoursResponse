@@ -2,15 +2,15 @@
   "type" : "object",
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:MealTypeOpenHoursResponse",
   "properties" : {
-    "start_time" : {
+    "mealType" : {
       "type" : "string",
       "required" : true
     },
-    "meal_type" : {
+    "startTime" : {
       "type" : "string",
       "required" : true
     },
-    "end_time" : {
+    "endTime" : {
       "type" : "string",
       "required" : true
     }

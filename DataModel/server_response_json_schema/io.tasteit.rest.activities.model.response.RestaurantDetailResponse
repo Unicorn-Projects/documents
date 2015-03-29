@@ -2,6 +2,31 @@
   "type" : "object",
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantDetailResponse",
   "properties" : {
+    "openHours" : {
+      "type" : "object",
+      "required" : true,
+      "additionalProperties" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:MealTypeOpenHoursResponse",
+          "properties" : {
+            "mealType" : {
+              "type" : "string",
+              "required" : true
+            },
+            "startTime" : {
+              "type" : "string",
+              "required" : true
+            },
+            "endTime" : {
+              "type" : "string",
+              "required" : true
+            }
+          }
+        }
+      }
+    },
     "website" : {
       "type" : "string",
       "required" : true
@@ -11,6 +36,10 @@
       "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:AddressResponse",
       "required" : true,
       "properties" : {
+        "zipCode" : {
+          "type" : "string",
+          "required" : true
+        },
         "country" : {
           "type" : "string",
           "required" : true
@@ -19,21 +48,17 @@
           "type" : "string",
           "required" : true
         },
-        "local_address" : {
+        "localAddress" : {
           "type" : "string",
           "required" : true
         },
         "state" : {
           "type" : "string",
           "required" : true
-        },
-        "zip_code" : {
-          "type" : "string",
-          "required" : true
         }
       }
     },
-    "images_urls" : {
+    "imageUrls" : {
       "type" : "array",
       "items" : {
         "type" : "string"
@@ -42,31 +67,6 @@
     "contact" : {
       "type" : "string",
       "required" : true
-    },
-    "open_hours" : {
-      "type" : "object",
-      "required" : true,
-      "additionalProperties" : {
-        "type" : "array",
-        "items" : {
-          "type" : "object",
-          "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:MealTypeOpenHoursResponse",
-          "properties" : {
-            "start_time" : {
-              "type" : "string",
-              "required" : true
-            },
-            "meal_type" : {
-              "type" : "string",
-              "required" : true
-            },
-            "end_time" : {
-              "type" : "string",
-              "required" : true
-            }
-          }
-        }
-      }
     }
   }
 }
