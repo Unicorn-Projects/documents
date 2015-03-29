@@ -21,7 +21,7 @@
       "type" : "string",
       "required" : true
     },
-    "cuisineDesc" : {
+    "cuisineDescription" : {
       "type" : "string",
       "required" : true
     },
