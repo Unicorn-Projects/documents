@@ -1,0 +1,26 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:AddressResponse",
+  "properties" : {
+    "zipCode" : {
+      "type" : "string",
+      "required" : true
+    },
+    "country" : {
+      "type" : "string",
+      "required" : true
+    },
+    "city" : {
+      "type" : "string",
+      "required" : true
+    },
+    "localAddress" : {
+      "type" : "string",
+      "required" : true
+    },
+    "state" : {
+      "type" : "string",
+      "required" : true
+    }
+  }
+}
