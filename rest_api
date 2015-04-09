@@ -159,3 +159,194 @@ It contains user_principal, access_token, user_display_name, user_profile_photo_
 
 
 curl -v "http://localhost:8080/v1/tokens/user_principal" -H "Authorization: Bearer <Generated Authorization Header>" -X GET
+
+
+
+rest api example
+user principal: 93198492779964381
+access token : f008a399-a0fd-3b97-8f98-96276381b9ff
+
+generate auth header :
+echo "93198492779964381:f008a399-a0fd-3b97-8f98-96276381b9ff" | base64
+OTMxOTg0OTI3Nzk5NjQzODE6ZjAwOGEzOTktYTBmZC0zYjk3LThmOTgtOTYyNzYzODFiOWZmCg==
+
+GET user display name
+
+curl -H "Authorization: Bearer OTMxOTg0OTI3Nzk5NjQzODE6ZjAwOGEzOTktYTBmZC0zYjk3LThmOTgtOTYyNzYzODFiOWZmCg==" http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/users/profile/93198492779964381 GET -v -i
+
+* Hostname was NOT found in DNS cache
+*   Trying 52.11.110.114...
+* Connected to ec2-52-11-110-114.us-west-2.compute.amazonaws.com (52.11.110.114) port 8080 (#0)
+> GET /v1/users/profile/93198492779964381 HTTP/1.1
+> User-Agent: curl/7.35.0
+> Host: ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080
+> Accept: */*
+> Authorization: Bearer OTMxOTg0OTI3Nzk5NjQzODE6ZjAwOGEzOTktYTBmZC0zYjk3LThmOTgtOTYyNzYzODFiOWZmCg==
+> 
+< HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+< Content-Type: application/json
+Content-Type: application/json
+< Date: Thu, 09 Apr 2015 04:29:11 GMT
+Date: Thu, 09 Apr 2015 04:29:11 GMT
+< Content-Length: 69
+Content-Length: 69
+
+< 
+{
+  "user_name" : "zihangyin",
+  "user_display_name" : "Zihang Yin"
+* Connection #0 to host ec2-52-11-110-114.us-west-2.compute.amazonaws.com left intact
+}* Rebuilt URL to: GET/
+* Hostname was NOT found in DNS cache
+* Could not resolve host: GET
+* Closing connection 1
+curl: (6) Could not resolve host: GET
+
+favorite dish:
+
+curl -H "Authorization: Bearer OTMxOTg0OTI3Nzk5NjQzODE6ZjAwOGEzOTktYTBmZC0zYjk3LThmOTgtOTYyNzYzODFiOWZmCg==" http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/users/favorite/cuisines?user_principal=93198492779964381 GET -v -i
+* Hostname was NOT found in DNS cache
+*   Trying 52.11.110.114...
+* Connected to ec2-52-11-110-114.us-west-2.compute.amazonaws.com (52.11.110.114) port 8080 (#0)
+> GET /v1/users/favorite/cuisines?user_principal=93198492779964381 HTTP/1.1
+> User-Agent: curl/7.35.0
+> Host: ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080
+> Accept: */*
+> Authorization: Bearer OTMxOTg0OTI3Nzk5NjQzODE6ZjAwOGEzOTktYTBmZC0zYjk3LThmOTgtOTYyNzYzODFiOWZmCg==
+> 
+< HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+< Content-Type: application/json
+Content-Type: application/json
+< Date: Thu, 09 Apr 2015 04:36:14 GMT
+Date: Thu, 09 Apr 2015 04:36:14 GMT
+< Content-Length: 684
+Content-Length: 684
+
+< 
+{
+  "user_principal" : 93198492779964381,
+  "cuisines" : [ {
+    "cuisine_id" : "c23p-74028793784012288-0008",
+    "timestamp" : 1428140714451
+  }, {
+    "cuisine_id" : "c23p-74028793784012288-0002",
+    "timestamp" : 1428140379676
+  }, {
+    "cuisine_id" : "c23p-74028793784012288-0003",
+    "timestamp" : 1428140378027
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0013",
+    "timestamp" : 1428140364108
+  }, {
+    "cuisine_id" : "c22z-70081367814700804-0009",
+    "timestamp" : 1428140361543
+  }, {
+    "cuisine_id" : "c23n-83440033214612255-0015",
+    "timestamp" : 1427970498271
+  }, {
+    "cuisine_id" : "c23n-91776366588915535-0016",
+    "timestamp" : 1427800959068
+  } ]
+* Connection #0 to host ec2-52-11-110-114.us-west-2.compute.amazonaws.com left intact
+}* Rebuilt URL to: GET/
+* Hostname was NOT found in DNS cache
+* Could not resolve host: GET
+* Closing connection 1
+curl: (6) Could not resolve host: GET
+
+
+followed restaurant
+
+curl -H "Authorization: Bearer OTMxOTg0OTI3Nzk5NjQzODE6ZjAwOGEzOTktYTBmZC0zYjk3LThmOTgtOTYyNzYzODFiOWZmCg==" http://ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080/v1/users/follow/restaurants?user_principal=93198492779964381 GET -v -i
+* Hostname was NOT found in DNS cache
+*   Trying 52.11.110.114...
+* Connected to ec2-52-11-110-114.us-west-2.compute.amazonaws.com (52.11.110.114) port 8080 (#0)
+> GET /v1/users/follow/restaurants?user_principal=93198492779964381 HTTP/1.1
+> User-Agent: curl/7.35.0
+> Host: ec2-52-11-110-114.us-west-2.compute.amazonaws.com:8080
+> Accept: */*
+> Authorization: Bearer OTMxOTg0OTI3Nzk5NjQzODE6ZjAwOGEzOTktYTBmZC0zYjk3LThmOTgtOTYyNzYzODFiOWZmCg==
+> 
+< HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+< Content-Type: application/json
+Content-Type: application/json
+< Date: Thu, 09 Apr 2015 04:39:19 GMT
+Date: Thu, 09 Apr 2015 04:39:19 GMT
+< Content-Length: 2128
+Content-Length: 2128
+
+< 
+{
+  "user_principal" : 93198492779964381,
+  "restaurants" : [ {
+    "restaurant" : {
+      "logo_url" : "https://photo.tasteit.io/c23n-98313030567422996/logo_v1",
+      "followed" : true,
+      "restaurant_id" : "c23n-98313030567422996",
+      "restaurant_name" : "TRACE",
+      "latitude" : 47.60743600549176,
+      "longitude" : -122.33367398846895
+    },
+    "timestamp" : 1428134475521
+  }, {
+    "restaurant" : {
+      "logo_url" : "https://photo.tasteit.io/c23p-96923201805357978/logo_v1",
+      "followed" : true,
+      "restaurant_id" : "c23p-96923201805357978",
+      "restaurant_name" : "Barking Forg",
+      "latitude" : 47.733868004288524,
+      "longitude" : -122.14712702203542
+    },
+    "timestamp" : 1427966706719
+  }, {
+    "restaurant" : {
+      "logo_url" : "https://photo.tasteit.io/c23n-91776366588915535/logo_v1",
+      "followed" : true,
+      "restaurant_id" : "c23n-91776366588915535",
+      "restaurant_name" : "Seastar Restaurant & Raw Bar",
+      "latitude" : 47.61221398366615,
+      "longitude" : -122.19652099069208
+    },
+    "timestamp" : 1427800923507
+  }, {
+    "restaurant" : {
+      "logo_url" : "https://photo.tasteit.io/c23n-83440033214612255/logo_v1",
+      "followed" : true,
+      "restaurant_id" : "c23n-83440033214612255",
+      "restaurant_name" : "John Howie Steak",
+      "latitude" : 47.61674498906359,
+      "longitude" : -122.19138003420085
+    },
+    "timestamp" : 1427800920850
+  }, {
+    "restaurant" : {
+      "logo_url" : "https://photo.tasteit.io/c22z-87604925636281685/logo_v1",
+      "followed" : true,
+      "restaurant_id" : "c22z-87604925636281685",
+      "restaurant_name" : "Rays Boathouse",
+      "latitude" : 47.673484983388335,
+      "longitude" : -122.40749198477715
+    },
+    "timestamp" : 1427800917927
+  }, {
+    "restaurant" : {
+      "logo_url" : "https://photo.tasteit.io/c23n-95821527589180192/logo_v1",
+      "followed" : true,
+      "restaurant_id" : "c23n-95821527589180192",
+      "restaurant_name" : "Loulay Kitchen & Bar",
+      "latitude" : 47.6105520199053,
+      "longitude" : -122.33348003122956
+    },
+    "timestamp" : 1427800888127
+  } ]
+* Connection #0 to host ec2-52-11-110-114.us-west-2.compute.amazonaws.com left intact
+}* Rebuilt URL to: GET/
+* Hostname was NOT found in DNS cache
+* Could not resolve host: GET
+* Closing connection 1
+curl: (6) Could not resolve host: GET
+
+
