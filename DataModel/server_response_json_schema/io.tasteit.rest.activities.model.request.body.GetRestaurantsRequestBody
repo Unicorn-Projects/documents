@@ -1,0 +1,31 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:body:GetRestaurantsRequestBody",
+  "properties" : {
+    "localTime" : {
+      "type" : "number"
+    },
+    "coordinate" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:ch:hsr:geohash:WGS84Point",
+      "properties" : {
+        "latitude" : {
+          "type" : "number"
+        },
+        "longitude" : {
+          "type" : "number"
+        }
+      }
+    },
+    "dayOfWeek" : {
+      "type" : "string",
+      "enum" : [ "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY" ]
+    },
+    "restaurantsIds" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    }
+  }
+}

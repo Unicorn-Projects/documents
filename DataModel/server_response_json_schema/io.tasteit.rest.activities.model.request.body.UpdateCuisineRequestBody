@@ -1,0 +1,39 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:body:UpdateCuisineRequestBody",
+  "properties" : {
+    "price" : {
+      "type" : "number"
+    },
+    "cuisineId" : {
+      "type" : "string"
+    },
+    "cuisineDesc" : {
+      "type" : "string"
+    },
+    "vegetarian" : {
+      "type" : "boolean"
+    },
+    "cuisineCategory" : {
+      "type" : "string"
+    },
+    "glutenFree" : {
+      "type" : "boolean"
+    },
+    "cuisineType" : {
+      "type" : "string"
+    },
+    "mealTypes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "cuisineName" : {
+      "type" : "string"
+    },
+    "menuCategory" : {
+      "type" : "string"
+    }
+  }
+}

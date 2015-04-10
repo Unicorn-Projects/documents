@@ -31,7 +31,7 @@
     },
     "sortingCriteria" : {
       "type" : "string",
-      "enum" : [ "DISTANCE", "DISTANCE_ALL", "RESTAURANT_POPULARITY", "CUISINE_POPULARITY" ]
+      "enum" : [ "DISTANCE", "RESTAURANT_POPULARITY", "CUISINE_POPULARITY" ]
     },
     "glutenFree" : {
       "type" : "boolean"

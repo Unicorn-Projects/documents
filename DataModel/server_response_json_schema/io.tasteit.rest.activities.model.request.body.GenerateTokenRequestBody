@@ -1,0 +1,21 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:body:GenerateTokenRequestBody",
+  "properties" : {
+    "password" : {
+      "type" : "string"
+    },
+    "credential" : {
+      "type" : "string"
+    },
+    "loginName" : {
+      "type" : "string"
+    },
+    "grantType" : {
+      "type" : "string"
+    },
+    "fbUserToken" : {
+      "type" : "string"
+    }
+  }
+}

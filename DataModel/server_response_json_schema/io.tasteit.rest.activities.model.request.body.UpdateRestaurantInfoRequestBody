@@ -1,0 +1,27 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:body:UpdateRestaurantInfoRequestBody",
+  "properties" : {
+    "mealsTypes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "cuisinesCategories" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "restaurantId" : {
+      "type" : "string"
+    },
+    "cuisinesTypes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    }
+  }
+}

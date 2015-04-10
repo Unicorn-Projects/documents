@@ -1,8 +1,46 @@
 {
   "type" : "object",
-  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantCuisinesResponse",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:SearchCuisinesForRestaurantResponse",
   "properties" : {
-    "restaurantCuisines" : {
+    "restaurant" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantInfoResponse",
+      "required" : true,
+      "properties" : {
+        "servingMealTypes" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "distance" : {
+          "type" : "number"
+        },
+        "restaurantName" : {
+          "type" : "string",
+          "required" : true
+        },
+        "latitude" : {
+          "type" : "number",
+          "required" : true
+        },
+        "restaurantId" : {
+          "type" : "string",
+          "required" : true
+        },
+        "followed" : {
+          "type" : "boolean"
+        },
+        "logoUrl" : {
+          "type" : "string"
+        },
+        "longitude" : {
+          "type" : "number",
+          "required" : true
+        }
+      }
+    },
+    "restaurant_cuisines" : {
       "type" : "array",
       "required" : true,
       "items" : {

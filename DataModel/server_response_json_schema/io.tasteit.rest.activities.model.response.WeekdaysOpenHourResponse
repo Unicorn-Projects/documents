@@ -1,0 +1,21 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:WeekdaysOpenHourResponse",
+  "properties" : {
+    "weekdays" : {
+      "type" : "array",
+      "required" : true,
+      "items" : {
+        "type" : "integer"
+      }
+    },
+    "startTime" : {
+      "type" : "string",
+      "required" : true
+    },
+    "endTime" : {
+      "type" : "string",
+      "required" : true
+    }
+  }
+}

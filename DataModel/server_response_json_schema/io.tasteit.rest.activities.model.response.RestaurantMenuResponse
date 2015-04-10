@@ -2,7 +2,7 @@
   "type" : "object",
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantMenuResponse",
   "properties" : {
-    "restaurant_menu" : {
+    "restaurantMenu" : {
       "type" : "object",
       "required" : true,
       "additionalProperties" : {
@@ -11,47 +11,44 @@
           "type" : "object",
           "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:CuisineResponse",
           "properties" : {
-            "cuisine_name" : {
-              "type" : "string",
-              "required" : true
-            },
-            "cuisine_description" : {
-              "type" : "string",
-              "required" : true
+            "imageVersion" : {
+              "type" : "integer"
             },
             "favorites" : {
-              "type" : "integer",
-              "required" : true
+              "type" : "integer"
             },
-            "meal_types" : {
+            "unavailable" : {
+              "type" : "boolean"
+            },
+            "glutenFree" : {
+              "type" : "boolean"
+            },
+            "mealTypes" : {
               "type" : "array",
-              "required" : true,
               "items" : {
                 "type" : "string"
               }
             },
-            "image_url" : {
-              "type" : "string"
+            "imageRatio" : {
+              "type" : "number"
             },
             "price" : {
-              "type" : "number",
-              "required" : true
+              "type" : "number"
+            },
+            "imageUrl" : {
+              "type" : "string"
+            },
+            "cuisineId" : {
+              "type" : "string"
+            },
+            "cuisineDesc" : {
+              "type" : "string"
             },
             "vegetarian" : {
-              "type" : "boolean",
-              "required" : true
+              "type" : "boolean"
             },
-            "image_ratio" : {
-              "type" : "number",
-              "required" : true
-            },
-            "cuisine_id" : {
-              "type" : "string",
-              "required" : true
-            },
-            "gluten_free" : {
-              "type" : "boolean",
-              "required" : true
+            "cuisineName" : {
+              "type" : "string"
             },
             "favorited" : {
               "type" : "boolean"

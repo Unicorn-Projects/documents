@@ -1,11 +1,11 @@
 {
   "type" : "object",
-  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantCuisinesResponse",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:GetCuisinesResponse",
   "properties" : {
-    "restaurantCuisines" : {
-      "type" : "array",
+    "cuisines" : {
+      "type" : "object",
       "required" : true,
-      "items" : {
+      "additionalProperties" : {
         "type" : "object",
         "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:CuisineResponse",
         "properties" : {

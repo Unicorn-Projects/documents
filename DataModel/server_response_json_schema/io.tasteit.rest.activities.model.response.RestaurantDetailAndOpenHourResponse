@@ -1,0 +1,75 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantDetailAndOpenHourResponse",
+  "properties" : {
+    "imagesUrls" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "openHours" : {
+      "type" : "object",
+      "required" : true,
+      "additionalProperties" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:MealTypeOpenHoursResponse",
+          "properties" : {
+            "mealType" : {
+              "type" : "string",
+              "required" : true
+            },
+            "startTime" : {
+              "type" : "string",
+              "required" : true
+            },
+            "endTime" : {
+              "type" : "string",
+              "required" : true
+            }
+          }
+        }
+      }
+    },
+    "website" : {
+      "type" : "string",
+      "required" : true
+    },
+    "address" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:AddressResponse",
+      "required" : true,
+      "properties" : {
+        "zipCode" : {
+          "type" : "string",
+          "required" : true
+        },
+        "country" : {
+          "type" : "string",
+          "required" : true
+        },
+        "city" : {
+          "type" : "string",
+          "required" : true
+        },
+        "localAddressLineTwo" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string",
+          "required" : true
+        },
+        "localAddressLineOne" : {
+          "type" : "string",
+          "required" : true
+        }
+      }
+    },
+    "contact" : {
+      "type" : "string",
+      "required" : true
+    }
+  }
+}

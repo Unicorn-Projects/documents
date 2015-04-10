@@ -2,33 +2,115 @@
   "type" : "object",
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantResponse",
   "properties" : {
-    "serving_meal_types" : {
+    "openHours" : {
+      "type" : "object",
+      "additionalProperties" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:WeekdaysOpenHourResponse",
+          "properties" : {
+            "weekdays" : {
+              "type" : "array",
+              "required" : true,
+              "items" : {
+                "type" : "integer"
+              }
+            },
+            "startTime" : {
+              "type" : "string",
+              "required" : true
+            },
+            "endTime" : {
+              "type" : "string",
+              "required" : true
+            }
+          }
+        }
+      }
+    },
+    "logoVersion" : {
+      "type" : "integer"
+    },
+    "favoriteCounter" : {
+      "type" : "integer"
+    },
+    "website" : {
+      "type" : "string"
+    },
+    "address" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:AddressResponse",
+      "properties" : {
+        "zipCode" : {
+          "type" : "string",
+          "required" : true
+        },
+        "country" : {
+          "type" : "string",
+          "required" : true
+        },
+        "city" : {
+          "type" : "string",
+          "required" : true
+        },
+        "localAddressLineTwo" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string",
+          "required" : true
+        },
+        "localAddressLineOne" : {
+          "type" : "string",
+          "required" : true
+        }
+      }
+    },
+    "mealsTypes" : {
       "type" : "array",
       "items" : {
         "type" : "string"
       }
     },
-    "logo_url" : {
+    "latitude" : {
+      "type" : "number"
+    },
+    "cuisinesCategories" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "restaurantId" : {
       "type" : "string"
     },
-    "restaurant_id" : {
-      "type" : "string",
-      "required" : true
+    "followedCounter" : {
+      "type" : "integer"
     },
-    "latitude" : {
-      "type" : "number",
-      "required" : true
+    "logoUrl" : {
+      "type" : "string"
     },
-    "followed" : {
-      "type" : "boolean"
+    "cuisinesTypes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
     },
-    "restaurant_name" : {
-      "type" : "string",
-      "required" : true
+    "imagesUrls" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "restaurantName" : {
+      "type" : "string"
+    },
+    "contact" : {
+      "type" : "string"
     },
     "longitude" : {
-      "type" : "number",
-      "required" : true
+      "type" : "number"
     }
   }
 }
