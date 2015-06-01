@@ -3,20 +3,16 @@
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:TokenResponse",
   "properties" : {
     "principal" : {
-      "type" : "integer",
-      "required" : true
+      "type" : "integer"
     },
     "tokenType" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "accessToken" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "expireAt" : {
       "type" : "integer",
-      "required" : true,
       "format" : "UTC_MILLISEC"
     }
   }

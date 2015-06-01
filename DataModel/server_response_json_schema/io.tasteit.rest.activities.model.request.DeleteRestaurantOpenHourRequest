@@ -1,0 +1,21 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:DeleteRestaurantOpenHourRequest",
+  "properties" : {
+    "mealType" : {
+      "type" : "string"
+    },
+    "geoRestaurantId" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:io:tasteit:rest:repository:model:GeoRestaurantId",
+      "properties" : {
+        "geoHashPrefix" : {
+          "type" : "string"
+        },
+        "restaurantId" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}

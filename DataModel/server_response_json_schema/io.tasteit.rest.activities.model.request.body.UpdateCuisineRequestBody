@@ -23,6 +23,9 @@
     "cuisineType" : {
       "type" : "string"
     },
+    "availability" : {
+      "type" : "boolean"
+    },
     "mealTypes" : {
       "type" : "array",
       "items" : {

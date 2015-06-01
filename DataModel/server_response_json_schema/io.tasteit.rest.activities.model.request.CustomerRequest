@@ -1,0 +1,9 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:CustomerRequest",
+  "properties" : {
+    "customerPrincipal" : {
+      "type" : "integer"
+    }
+  }
+}

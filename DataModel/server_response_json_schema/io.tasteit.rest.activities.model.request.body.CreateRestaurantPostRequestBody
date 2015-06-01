@@ -1,0 +1,21 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:body:CreateRestaurantPostRequestBody",
+  "properties" : {
+    "postDesc" : {
+      "type" : "string"
+    },
+    "postTitle" : {
+      "type" : "string"
+    },
+    "restaurantId" : {
+      "type" : "string"
+    },
+    "postImages" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    }
+  }
+}

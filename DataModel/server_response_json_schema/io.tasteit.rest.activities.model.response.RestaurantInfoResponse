@@ -12,16 +12,13 @@
       "type" : "number"
     },
     "restaurantName" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "latitude" : {
-      "type" : "number",
-      "required" : true
+      "type" : "number"
     },
     "restaurantId" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "followed" : {
       "type" : "boolean"
@@ -30,8 +27,7 @@
       "type" : "string"
     },
     "longitude" : {
-      "type" : "number",
-      "required" : true
+      "type" : "number"
     }
   }
 }

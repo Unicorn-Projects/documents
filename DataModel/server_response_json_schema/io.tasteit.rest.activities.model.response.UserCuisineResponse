@@ -3,12 +3,10 @@
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:UserCuisineResponse",
   "properties" : {
     "cuisineId" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "timestamp" : {
-      "type" : "integer",
-      "required" : true
+      "type" : "integer"
     }
   }
 }

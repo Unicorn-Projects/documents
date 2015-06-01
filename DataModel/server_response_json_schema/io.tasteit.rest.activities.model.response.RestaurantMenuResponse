@@ -4,7 +4,6 @@
   "properties" : {
     "restaurantMenu" : {
       "type" : "object",
-      "required" : true,
       "additionalProperties" : {
         "type" : "array",
         "items" : {
@@ -17,10 +16,13 @@
             "favorites" : {
               "type" : "integer"
             },
-            "unavailable" : {
+            "glutenFree" : {
               "type" : "boolean"
             },
-            "glutenFree" : {
+            "cuisineType" : {
+              "type" : "string"
+            },
+            "availability" : {
               "type" : "boolean"
             },
             "mealTypes" : {
@@ -28,6 +30,9 @@
               "items" : {
                 "type" : "string"
               }
+            },
+            "menuCategory" : {
+              "type" : "string"
             },
             "imageRatio" : {
               "type" : "number"
@@ -46,6 +51,9 @@
             },
             "vegetarian" : {
               "type" : "boolean"
+            },
+            "cuisineCategory" : {
+              "type" : "string"
             },
             "cuisineName" : {
               "type" : "string"

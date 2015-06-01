@@ -3,23 +3,19 @@
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:UserCuisinesResponse",
   "properties" : {
     "userPrincipal" : {
-      "type" : "integer",
-      "required" : true
+      "type" : "integer"
     },
     "cuisines" : {
       "type" : "array",
-      "required" : true,
       "items" : {
         "type" : "object",
         "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:UserCuisineResponse",
         "properties" : {
           "cuisineId" : {
-            "type" : "string",
-            "required" : true
+            "type" : "string"
           },
           "timestamp" : {
-            "type" : "integer",
-            "required" : true
+            "type" : "integer"
           }
         }
       }

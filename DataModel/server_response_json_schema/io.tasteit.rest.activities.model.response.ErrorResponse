@@ -3,16 +3,13 @@
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:ErrorResponse",
   "properties" : {
     "errorDesc" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "errorType" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "errorCode" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     }
   }
 }

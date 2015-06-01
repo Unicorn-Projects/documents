@@ -10,7 +10,6 @@
     },
     "openHours" : {
       "type" : "object",
-      "required" : true,
       "additionalProperties" : {
         "type" : "array",
         "items" : {
@@ -18,58 +17,50 @@
           "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:MealTypeOpenHoursResponse",
           "properties" : {
             "mealType" : {
-              "type" : "string",
-              "required" : true
+              "type" : "string"
             },
             "startTime" : {
-              "type" : "string",
-              "required" : true
+              "type" : "string"
             },
             "endTime" : {
-              "type" : "string",
-              "required" : true
+              "type" : "string"
             }
           }
         }
       }
     },
     "website" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "address" : {
       "type" : "object",
       "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:AddressResponse",
-      "required" : true,
       "properties" : {
         "zipCode" : {
-          "type" : "string",
-          "required" : true
+          "type" : "string"
         },
         "country" : {
-          "type" : "string",
-          "required" : true
+          "type" : "string"
         },
         "city" : {
-          "type" : "string",
-          "required" : true
+          "type" : "string"
         },
         "localAddressLineTwo" : {
           "type" : "string"
         },
         "state" : {
-          "type" : "string",
-          "required" : true
+          "type" : "string"
         },
         "localAddressLineOne" : {
-          "type" : "string",
-          "required" : true
+          "type" : "string"
         }
       }
     },
     "contact" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
+    },
+    "reservationLink" : {
+      "type" : "string"
     }
   }
 }

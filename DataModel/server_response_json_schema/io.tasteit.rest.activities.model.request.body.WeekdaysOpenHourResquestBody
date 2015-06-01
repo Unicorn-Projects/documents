@@ -1,6 +1,6 @@
 {
   "type" : "object",
-  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:WeekdaysOpenHourResponse",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:body:WeekdaysOpenHourResquestBody",
   "properties" : {
     "weekdays" : {
       "type" : "array",

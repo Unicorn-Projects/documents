@@ -1,0 +1,24 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:GetPostsForRestaurantRequest",
+  "properties" : {
+    "beforeTimestamp" : {
+      "type" : "integer"
+    },
+    "limit" : {
+      "type" : "integer"
+    },
+    "geoRestaurantId" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:io:tasteit:rest:repository:model:GeoRestaurantId",
+      "properties" : {
+        "geoHashPrefix" : {
+          "type" : "string"
+        },
+        "restaurantId" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}

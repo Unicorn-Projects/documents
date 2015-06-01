@@ -1,10 +1,10 @@
 {
   "type" : "object",
-  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:GetRestaurantsResponse",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantsInfoResponse",
   "properties" : {
     "restaurants" : {
-      "type" : "object",
-      "additionalProperties" : {
+      "type" : "array",
+      "items" : {
         "type" : "object",
         "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantInfoResponse",
         "properties" : {

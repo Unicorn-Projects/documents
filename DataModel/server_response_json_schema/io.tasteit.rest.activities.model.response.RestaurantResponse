@@ -12,28 +12,31 @@
           "properties" : {
             "weekdays" : {
               "type" : "array",
-              "required" : true,
               "items" : {
                 "type" : "integer"
               }
             },
             "startTime" : {
-              "type" : "string",
-              "required" : true
+              "type" : "string"
             },
             "endTime" : {
-              "type" : "string",
-              "required" : true
+              "type" : "string"
             }
           }
         }
       }
     },
-    "logoVersion" : {
-      "type" : "integer"
+    "displayImages" : {
+      "type" : "array",
+      "items" : {
+        "type" : "integer"
+      }
     },
-    "favoriteCounter" : {
-      "type" : "integer"
+    "imagesRepo" : {
+      "type" : "array",
+      "items" : {
+        "type" : "integer"
+      }
     },
     "website" : {
       "type" : "string"
@@ -43,40 +46,35 @@
       "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:AddressResponse",
       "properties" : {
         "zipCode" : {
-          "type" : "string",
-          "required" : true
+          "type" : "string"
         },
         "country" : {
-          "type" : "string",
-          "required" : true
+          "type" : "string"
         },
         "city" : {
-          "type" : "string",
-          "required" : true
+          "type" : "string"
         },
         "localAddressLineTwo" : {
           "type" : "string"
         },
         "state" : {
-          "type" : "string",
-          "required" : true
+          "type" : "string"
         },
         "localAddressLineOne" : {
-          "type" : "string",
-          "required" : true
+          "type" : "string"
         }
       }
     },
-    "mealsTypes" : {
+    "contact" : {
+      "type" : "string"
+    },
+    "displayImagesUrls" : {
       "type" : "array",
       "items" : {
         "type" : "string"
       }
     },
-    "latitude" : {
-      "type" : "number"
-    },
-    "cuisinesCategories" : {
+    "imagesRepoUrls" : {
       "type" : "array",
       "items" : {
         "type" : "string"
@@ -85,32 +83,8 @@
     "restaurantId" : {
       "type" : "string"
     },
-    "followedCounter" : {
-      "type" : "integer"
-    },
-    "logoUrl" : {
+    "reservationLink" : {
       "type" : "string"
-    },
-    "cuisinesTypes" : {
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "imagesUrls" : {
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "restaurantName" : {
-      "type" : "string"
-    },
-    "contact" : {
-      "type" : "string"
-    },
-    "longitude" : {
-      "type" : "number"
     }
   }
 }

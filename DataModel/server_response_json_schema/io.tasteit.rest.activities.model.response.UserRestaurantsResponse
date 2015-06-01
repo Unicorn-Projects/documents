@@ -4,25 +4,21 @@
   "properties" : {
     "restaurants" : {
       "type" : "array",
-      "required" : true,
       "items" : {
         "type" : "object",
         "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:UserRestaurantResponse",
         "properties" : {
           "restaurantId" : {
-            "type" : "string",
-            "required" : true
+            "type" : "string"
           },
           "timestamp" : {
-            "type" : "integer",
-            "required" : true
+            "type" : "integer"
           }
         }
       }
     },
     "userPrincipal" : {
-      "type" : "integer",
-      "required" : true
+      "type" : "integer"
     }
   }
 }

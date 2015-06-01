@@ -3,27 +3,22 @@
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:AddressResponse",
   "properties" : {
     "zipCode" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "country" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "city" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "localAddressLineTwo" : {
       "type" : "string"
     },
     "state" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "localAddressLineOne" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     }
   }
 }

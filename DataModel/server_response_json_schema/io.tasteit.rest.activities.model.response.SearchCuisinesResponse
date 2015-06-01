@@ -3,57 +3,16 @@
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:SearchCuisinesResponse",
   "properties" : {
     "nextOffset" : {
-      "type" : "integer",
-      "required" : true
+      "type" : "integer"
     },
     "cuisines" : {
       "type" : "array",
-      "required" : true,
       "items" : {
         "type" : "object",
         "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:SearchCuisinesForRestaurantResponse",
         "properties" : {
-          "restaurant" : {
-            "type" : "object",
-            "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantInfoResponse",
-            "required" : true,
-            "properties" : {
-              "servingMealTypes" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "string"
-                }
-              },
-              "distance" : {
-                "type" : "number"
-              },
-              "restaurantName" : {
-                "type" : "string",
-                "required" : true
-              },
-              "latitude" : {
-                "type" : "number",
-                "required" : true
-              },
-              "restaurantId" : {
-                "type" : "string",
-                "required" : true
-              },
-              "followed" : {
-                "type" : "boolean"
-              },
-              "logoUrl" : {
-                "type" : "string"
-              },
-              "longitude" : {
-                "type" : "number",
-                "required" : true
-              }
-            }
-          },
-          "restaurant_cuisines" : {
+          "restaurantCuisines" : {
             "type" : "array",
-            "required" : true,
             "items" : {
               "type" : "object",
               "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:CuisineResponse",
@@ -64,10 +23,13 @@
                 "favorites" : {
                   "type" : "integer"
                 },
-                "unavailable" : {
+                "glutenFree" : {
                   "type" : "boolean"
                 },
-                "glutenFree" : {
+                "cuisineType" : {
+                  "type" : "string"
+                },
+                "availability" : {
                   "type" : "boolean"
                 },
                 "mealTypes" : {
@@ -75,6 +37,9 @@
                   "items" : {
                     "type" : "string"
                   }
+                },
+                "menuCategory" : {
+                  "type" : "string"
                 },
                 "imageRatio" : {
                   "type" : "number"
@@ -94,12 +59,48 @@
                 "vegetarian" : {
                   "type" : "boolean"
                 },
+                "cuisineCategory" : {
+                  "type" : "string"
+                },
                 "cuisineName" : {
                   "type" : "string"
                 },
                 "favorited" : {
                   "type" : "boolean"
                 }
+              }
+            }
+          },
+          "restaurant" : {
+            "type" : "object",
+            "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantInfoResponse",
+            "properties" : {
+              "servingMealTypes" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "string"
+                }
+              },
+              "distance" : {
+                "type" : "number"
+              },
+              "restaurantName" : {
+                "type" : "string"
+              },
+              "latitude" : {
+                "type" : "number"
+              },
+              "restaurantId" : {
+                "type" : "string"
+              },
+              "followed" : {
+                "type" : "boolean"
+              },
+              "logoUrl" : {
+                "type" : "string"
+              },
+              "longitude" : {
+                "type" : "number"
               }
             }
           }
