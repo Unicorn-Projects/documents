@@ -2,13 +2,11 @@
   "type" : "object",
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:UserCuisineResponse",
   "properties" : {
-    "cuisine_id" : {
-      "type" : "string",
-      "required" : true
+    "cuisineId" : {
+      "type" : "string"
     },
     "timestamp" : {
-      "type" : "integer",
-      "required" : true
+      "type" : "integer"
     }
   }
 }

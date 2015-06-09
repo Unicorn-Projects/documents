@@ -1,0 +1,9 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:HasUnreadPostResponse",
+  "properties" : {
+    "hasUnreadPost" : {
+      "type" : "boolean"
+    }
+  }
+}

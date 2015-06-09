@@ -1,0 +1,18 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:body:UpdateRestaurantOpenHourRequestBody:WeekdaysOpenHourResquestBody",
+  "properties" : {
+    "weekdays" : {
+      "type" : "array",
+      "items" : {
+        "type" : "integer"
+      }
+    },
+    "startTime" : {
+      "type" : "string"
+    },
+    "endTime" : {
+      "type" : "string"
+    }
+  }
+}

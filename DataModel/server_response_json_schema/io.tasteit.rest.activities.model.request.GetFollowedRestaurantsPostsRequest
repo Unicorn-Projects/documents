@@ -1,0 +1,12 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:GetFollowedRestaurantsPostsRequest",
+  "properties" : {
+    "beforeTimestamp" : {
+      "type" : "integer"
+    },
+    "afterTimestamp" : {
+      "type" : "integer"
+    }
+  }
+}

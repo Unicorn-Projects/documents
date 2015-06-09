@@ -1,0 +1,15 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:UpdatePromotionImageListRequest",
+  "properties" : {
+    "restaurantId" : {
+      "type" : "string"
+    },
+    "imageIds" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    }
+  }
+}

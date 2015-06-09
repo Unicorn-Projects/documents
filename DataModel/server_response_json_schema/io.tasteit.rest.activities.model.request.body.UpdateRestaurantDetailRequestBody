@@ -1,0 +1,18 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:body:UpdateRestaurantDetailRequestBody",
+  "properties" : {
+    "website" : {
+      "type" : "string"
+    },
+    "contact" : {
+      "type" : "string"
+    },
+    "restaurantId" : {
+      "type" : "string"
+    },
+    "reservationLink" : {
+      "type" : "string"
+    }
+  }
+}

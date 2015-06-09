@@ -7,7 +7,7 @@
     },
     "tokenType" : {
       "type" : "string",
-      "enum" : [ "ACCESS_TOKEN" ]
+      "enum" : [ "ACCESS_TOKEN", "RESET_CUSTOMER_TOKEN", "DEVICE_TOKEN" ]
     },
     "token" : {
       "type" : "string"

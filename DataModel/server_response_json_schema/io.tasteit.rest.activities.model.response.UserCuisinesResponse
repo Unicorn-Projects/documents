@@ -2,24 +2,20 @@
   "type" : "object",
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:UserCuisinesResponse",
   "properties" : {
-    "user_principal" : {
-      "type" : "integer",
-      "required" : true
+    "userPrincipal" : {
+      "type" : "integer"
     },
     "cuisines" : {
       "type" : "array",
-      "required" : true,
       "items" : {
         "type" : "object",
         "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:UserCuisineResponse",
         "properties" : {
-          "cuisine_id" : {
-            "type" : "string",
-            "required" : true
+          "cuisineId" : {
+            "type" : "string"
           },
           "timestamp" : {
-            "type" : "integer",
-            "required" : true
+            "type" : "integer"
           }
         }
       }

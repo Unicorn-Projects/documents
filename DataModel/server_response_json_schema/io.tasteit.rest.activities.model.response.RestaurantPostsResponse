@@ -1,0 +1,36 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantPostsResponse",
+  "properties" : {
+    "posts" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantPostResponse",
+        "properties" : {
+          "postImageUrlBases" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "postDesc" : {
+            "type" : "string"
+          },
+          "postTitle" : {
+            "type" : "string"
+          },
+          "postId" : {
+            "type" : "string"
+          },
+          "postTimestamp" : {
+            "type" : "integer"
+          }
+        }
+      }
+    },
+    "nextQueryBeforeTimestamp" : {
+      "type" : "integer"
+    }
+  }
+}

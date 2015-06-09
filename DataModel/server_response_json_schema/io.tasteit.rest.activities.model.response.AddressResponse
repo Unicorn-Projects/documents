@@ -2,25 +2,23 @@
   "type" : "object",
   "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:AddressResponse",
   "properties" : {
+    "zipCode" : {
+      "type" : "string"
+    },
     "country" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
     "city" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
-    "local_address" : {
-      "type" : "string",
-      "required" : true
+    "localAddressLineTwo" : {
+      "type" : "string"
     },
     "state" : {
-      "type" : "string",
-      "required" : true
+      "type" : "string"
     },
-    "zip_code" : {
-      "type" : "string",
-      "required" : true
+    "localAddressLineOne" : {
+      "type" : "string"
     }
   }
 }

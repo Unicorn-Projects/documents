@@ -1,0 +1,42 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:GetRestaurantsResponse",
+  "properties" : {
+    "restaurants" : {
+      "type" : "object",
+      "additionalProperties" : {
+        "type" : "object",
+        "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantInfoResponse",
+        "properties" : {
+          "servingMealTypes" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "distance" : {
+            "type" : "number"
+          },
+          "restaurantName" : {
+            "type" : "string"
+          },
+          "latitude" : {
+            "type" : "number"
+          },
+          "restaurantId" : {
+            "type" : "string"
+          },
+          "followed" : {
+            "type" : "boolean"
+          },
+          "logoUrl" : {
+            "type" : "string"
+          },
+          "longitude" : {
+            "type" : "number"
+          }
+        }
+      }
+    }
+  }
+}

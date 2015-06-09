@@ -1,0 +1,24 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:body:GetRestaurantsRequestBody",
+  "properties" : {
+    "localTime" : {
+      "type" : "string"
+    },
+    "dayOfWeek" : {
+      "type" : "string"
+    },
+    "latitude" : {
+      "type" : "string"
+    },
+    "restaurantsIds" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "longitude" : {
+      "type" : "string"
+    }
+  }
+}

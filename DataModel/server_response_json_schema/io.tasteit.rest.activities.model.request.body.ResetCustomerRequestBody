@@ -1,0 +1,18 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:request:body:ResetCustomerRequestBody",
+  "properties" : {
+    "emailAddress" : {
+      "type" : "string"
+    },
+    "credential" : {
+      "type" : "string"
+    },
+    "customerPrincipal" : {
+      "type" : "integer"
+    },
+    "token" : {
+      "type" : "string"
+    }
+  }
+}

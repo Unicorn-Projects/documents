@@ -4,56 +4,21 @@
   "properties" : {
     "restaurants" : {
       "type" : "array",
-      "required" : true,
       "items" : {
         "type" : "object",
         "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:UserRestaurantResponse",
         "properties" : {
-          "restaurant" : {
-            "type" : "object",
-            "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantResponse",
-            "required" : true,
-            "properties" : {
-              "serving_meal_types" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "string"
-                }
-              },
-              "logo_url" : {
-                "type" : "string"
-              },
-              "restaurant_id" : {
-                "type" : "string",
-                "required" : true
-              },
-              "latitude" : {
-                "type" : "number",
-                "required" : true
-              },
-              "followed" : {
-                "type" : "boolean"
-              },
-              "restaurant_name" : {
-                "type" : "string",
-                "required" : true
-              },
-              "longitude" : {
-                "type" : "number",
-                "required" : true
-              }
-            }
+          "restaurantId" : {
+            "type" : "string"
           },
           "timestamp" : {
-            "type" : "integer",
-            "required" : true
+            "type" : "integer"
           }
         }
       }
     },
-    "user_principal" : {
-      "type" : "integer",
-      "required" : true
+    "userPrincipal" : {
+      "type" : "integer"
     }
   }
 }

@@ -1,20 +1,23 @@
 {
   "type" : "object",
-  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantResponse",
+  "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:RestaurantDetailAndOpenHourResponse",
   "properties" : {
+    "imagesUrls" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
     "openHours" : {
       "type" : "object",
       "additionalProperties" : {
         "type" : "array",
         "items" : {
           "type" : "object",
-          "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:WeekdaysOpenHourResponse",
+          "id" : "urn:jsonschema:io:tasteit:rest:activities:model:response:MealTypeOpenHoursResponse",
           "properties" : {
-            "weekdays" : {
-              "type" : "array",
-              "items" : {
-                "type" : "integer"
-              }
+            "mealType" : {
+              "type" : "string"
             },
             "startTime" : {
               "type" : "string"
@@ -24,18 +27,6 @@
             }
           }
         }
-      }
-    },
-    "displayImages" : {
-      "type" : "array",
-      "items" : {
-        "type" : "integer"
-      }
-    },
-    "imagesRepo" : {
-      "type" : "array",
-      "items" : {
-        "type" : "integer"
       }
     },
     "website" : {
@@ -66,21 +57,6 @@
       }
     },
     "contact" : {
-      "type" : "string"
-    },
-    "displayImagesUrls" : {
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "imagesRepoUrls" : {
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "restaurantId" : {
       "type" : "string"
     },
     "reservationLink" : {
