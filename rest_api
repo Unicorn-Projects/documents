@@ -350,3 +350,5 @@ Content-Length: 2128
 curl: (6) Could not resolve host: GET
 
 
+# curl upload file example
+curl --form file=@/home/xingbowang/workspace/tastitSSH/unicorn-tasteit-server/deploy_script http://localhost:8080/v1/users/upload
