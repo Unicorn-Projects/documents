@@ -355,4 +355,4 @@ curl: (6) Could not resolve host: GET
 curl --form file=@/home/xingbowang/workspace/tastitSSH/unicorn-tasteit-server/deploy_script http://localhost:8080/v1/users/upload
 
 # curl upload user photo example
-curl -v -H "Authorization: Bearer MTU5ODMzODM3NjA0MTMxMjU1OmRiNTVkOTgzLTI4MjUtMzQ2OC1hMWI1LTljZGEwNWY5MWU2Zg==" --form photo=@/home/xingbowang/Downloads/0007_v1_small.jpeg http://localhost:8080/v1/users/upload/photo?restaurant=bala&cuisine=hez&price=12&description=bababalalala
+curl -v -H "Authorization: Bearer MTU5ODMzODM3NjA0MTMxMjU1OmRiNTVkOTgzLTI4MjUtMzQ2OC1hMWI1LTljZGEwNWY5MWU2Zg==" --form photo=@/home/xingbowang/Downloads/0007_v1_small.jpeg "http://localhost:8080/v1/users/upload/photo?restaurant=bala&cuisine=heghjgjhz&description=bababalalala"
